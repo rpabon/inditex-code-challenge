@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './App.module.css';
 
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hello, React with TypeScript!</h1>
+    <div className={styles.app}>
+      <h1 className={styles.title}>Welcome to my React App</h1>
     </div>
   );
 };
