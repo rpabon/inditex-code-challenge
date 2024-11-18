@@ -4,10 +4,6 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-    hot: true,
-  },
   module: {
     rules: [
       {
@@ -28,5 +24,11 @@ module.exports = merge(common, {
         ],
       },
     ],
+  },
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/,
+    aggregateTimeout: 300,
+    poll: 1000,
   },
 });
