@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useFetchFeed } from '@/hooks/useFetchFeed';
 import { PodcastCard } from '@/components/PodcastCard';
 import { PodcastFilter } from '@/components/PodcastFilter';
+import { usePodcastFeed } from '@/hooks/usePodcastFeed';
 import styles from './PodcastList.module.css';
 
 export const PodcastList: React.FC = () => {
-  const { podcastFeed, loading, error } = useFetchFeed();
+  const { podcastFeed, loading, error } = usePodcastFeed();
   const podcastList = podcastFeed?.feed?.entry || [];
   const [filteredPodcasts, setFilteredPodcasts] = useState(podcastList);
 
