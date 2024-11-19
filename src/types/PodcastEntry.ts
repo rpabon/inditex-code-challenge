@@ -1,3 +1,5 @@
+import { PodcastImage } from '@/types/PodcastImage';
+
 export interface PodcastEntry {
   id: Id;
   category: Category;
@@ -6,7 +8,7 @@ export interface PodcastEntry {
   summary: Label;
   title: Label;
   'im:name': Label;
-  'im:image': Image[];
+  'im:image': PodcastImage[];
   'im:price': Price;
   'im:contentType': ContentType;
   'im:artist': Artist;
@@ -15,13 +17,6 @@ export interface PodcastEntry {
 
 interface Label {
   label: string;
-}
-
-interface Image {
-  label: string;
-  attributes: {
-    height: string;
-  };
 }
 
 interface Price {

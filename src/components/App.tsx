@@ -1,11 +1,13 @@
-import React from 'react';
-import styles from './App.module.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { PodcastList } from '@/pages/PodcastList';
 
-const App: React.FC = () => {
+const App = () => {
   return (
-    <div className={styles.app}>
-      <h1 className={styles.title}>Welcome to my React App</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<PodcastList />} />
+      </Routes>
+    </Router>
   );
 };
 

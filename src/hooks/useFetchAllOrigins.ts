@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-const ALL_ORIGINS_URL = 'https://api.allorigins.win';
+const ALL_ORIGINS_URL = 'https://api.allorigins.win/get';
 
 export const useFetchAllOrigins = () => {
   const [loading, setLoading] = useState(false);
@@ -11,9 +11,9 @@ export const useFetchAllOrigins = () => {
     setError(null);
 
     try {
-      const response = await fetch(
-        `${ALL_ORIGINS_URL}/get?url=${encodeURIComponent(url)}`,
-      );
+      const allOriginsUrl = new URL(ALL_ORIGINS_URL);
+      allOriginsUrl.searchParams.append('url', url);
+      const response = await fetch(allOriginsUrl.toString());
 
       if (!response.ok) {
         const error = new Error('Network response was not ok');

@@ -1,4 +1,4 @@
-import { PodcastEntry } from './PodcastEntry';
+import { PodcastEntry } from '@/types/PodcastEntry';
 
 export interface PodcastFeed {
   feed: {

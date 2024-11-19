@@ -1,0 +1,10 @@
+.image {
+  width: auto;
+  background-color: #f0f0f0; /* Light gray background color */
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.image.loaded {
+  opacity: 1;
+}
