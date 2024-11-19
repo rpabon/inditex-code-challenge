@@ -6,7 +6,7 @@ import styles from './PodcastList.module.css';
 
 export const PodcastList: React.FC = () => {
   const { podcastFeed, loading, error } = useFetchFeed();
-  const podcastList = podcastFeed?.feed.entry || [];
+  const podcastList = podcastFeed?.feed?.entry || [];
   const [filteredPodcasts, setFilteredPodcasts] = useState(podcastList);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const PodcastList: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{podcastFeed.feed.title.label}</h1>
+      <h1 className={styles.title}>{podcastFeed?.feed?.title.label}</h1>
 
       <div className={styles.podcastFilterContainer}>
         <PodcastFilter

@@ -1,11 +1,14 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { PodcastList } from '@/pages/PodcastList';
+import PodcastDetail from '@/components/PodcastDetail';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<PodcastList />} />
+        <Route path="/podcast/:podcastId" element={<PodcastDetail />} />
       </Routes>
     </Router>
   );

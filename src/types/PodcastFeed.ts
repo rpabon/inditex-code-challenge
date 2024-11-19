@@ -1,7 +1,7 @@
 import { PodcastEntry } from '@/types/PodcastEntry';
 
 export interface PodcastFeed {
-  feed: {
+  feed?: {
     author: Author;
     entry: PodcastEntry[];
     updated: Label;

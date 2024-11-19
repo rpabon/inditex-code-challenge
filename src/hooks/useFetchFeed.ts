@@ -1,33 +1,28 @@
 import { useState, useEffect } from 'react';
-import podcastFeedMock from '@/mocks/podcast-feed.mock.json';
 import { PodcastFeed } from '@/types/PodcastFeed';
+import { useFetchAllOrigins } from '@/hooks/useFetchAllOrigins';
+
+const ITUNES_TOP_PODCASTS_URL =
+  'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json';
 
 export const useFetchFeed = () => {
   const [podcastFeed, setPodcastFeed] = useState<PodcastFeed | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<Error | null>(null);
+  const { fetchUrl, loading, error } = useFetchAllOrigins();
 
   useEffect(() => {
     const fetchFeed = async () => {
       try {
-        // Simulate network request
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-
-        // Simulate potential error (uncomment to test error handling)
-        // if (Math.random() < 0.3) throw new Error('Random error occurred');
-
-        setPodcastFeed(podcastFeedMock as PodcastFeed);
+        const feed = await fetchUrl<PodcastFeed>(ITUNES_TOP_PODCASTS_URL);
+        if (feed) {
+          setPodcastFeed(feed);
+        }
       } catch (e) {
-        const errorMessage =
-          e instanceof Error ? e.message : 'An unknown error occurred';
-        setError(new Error(errorMessage));
-      } finally {
-        setLoading(false);
+        console.error('Error fetching podcast feed:', e);
       }
     };
 
     fetchFeed();
-  }, []);
+  }, [fetchUrl]);
 
   return { podcastFeed, loading, error };
 };
