@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { usePodcastDetails } from '@/hooks/usePodcastDetails';
+import { formatDuration } from './PodcastEpisodeList.utils';
 import styles from './PodcastEpisodeList.module.css';
 
-interface PodcastEpisodeListProps {
-  podcastId?: string;
-}
-
-export const PodcastEpisodeList: React.FC<PodcastEpisodeListProps> = ({
-  podcastId,
-}) => {
+export const PodcastEpisodeList: React.FC = () => {
+  const { podcastId } = useParams<{ podcastId: string }>();
   const { podcastDetails, loading, error, fetchPodcastDetails } =
     usePodcastDetails();
 
@@ -23,7 +19,8 @@ export const PodcastEpisodeList: React.FC<PodcastEpisodeListProps> = ({
   if (error) return <div>Error: {error.message}</div>;
   if (!podcastDetails) return <div>No podcast details available</div>;
 
-  const episodes = podcastDetails.results;
+  // Remove first element as it's not an episode
+  const episodes = podcastDetails.results.slice(1);
 
   return (
     <div className={styles.episodeList}>
@@ -53,10 +50,3 @@ export const PodcastEpisodeList: React.FC<PodcastEpisodeListProps> = ({
     </div>
   );
 };
-
-function formatDuration(milliseconds: number): string {
-  const totalSeconds = Math.floor(milliseconds / 1000);
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-  return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-}

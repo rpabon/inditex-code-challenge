@@ -1,16 +1,13 @@
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { usePodcastDetails } from '@/hooks/usePodcastDetails';
 import styles from './PodcastEpisodeDetails.module.css';
 
-interface PodcastEpisodeDetailsProps {
-  podcastId?: string;
-  episodeId?: string;
-}
-
-export const PodcastEpisodeDetails: React.FC<PodcastEpisodeDetailsProps> = ({
-  podcastId,
-  episodeId,
-}: PodcastEpisodeDetailsProps) => {
+export const PodcastEpisodeDetails: React.FC = () => {
+  const { podcastId, episodeId } = useParams<{
+    podcastId: string;
+    episodeId: string;
+  }>();
   const { podcastDetails, loading, error, fetchPodcastDetails } =
     usePodcastDetails();
 
@@ -21,10 +18,6 @@ export const PodcastEpisodeDetails: React.FC<PodcastEpisodeDetailsProps> = ({
   }, [podcastId, fetchPodcastDetails]);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
-
-  console.log('episode id', episodeId);
-
-  console.log(podcastDetails?.results.map((e) => e.trackId));
 
   const episode = podcastDetails?.results.find(
     (episode) => episode.trackId.toString() === episodeId,
