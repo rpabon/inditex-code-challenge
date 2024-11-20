@@ -8,7 +8,9 @@ export const SinglePodcastOverview: React.FC = () => {
 
   return (
     <div className={styles.layout}>
-      <PodcastDetailSidebar podcastId={podcastId} />
+      <div className={styles.sidebarWrapper}>
+        <PodcastDetailSidebar podcastId={podcastId} />
+      </div>
 
       <div className={styles.content}>
         <Outlet />

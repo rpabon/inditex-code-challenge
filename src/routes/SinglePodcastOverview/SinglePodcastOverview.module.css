@@ -1,18 +1,23 @@
 .layout {
   display: flex;
-  padding: 20px;
-  gap: 20px;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-md);
+  min-height: calc(100vh - var(--header-height));
 }
 
-.sidebar {
-  flex: 0 0 300px;
-  border-right: 1px solid #e0e0e0;
-  padding-right: 20px;
+.sidebarWrapper {
+  flex: 0 0 300px; /* Fixed width */
+  max-width: 300px; /* Ensure it doesn't grow beyond this width */
+  align-self: flex-start;
+  position: sticky;
+  top: var(--spacing-md);
+  max-height: calc(100vh - var(--header-height) - var(--spacing-md) * 2);
+  overflow-y: auto;
 }
 
 .content {
   flex: 1;
-  min-width: 0;
+  min-width: 0; /* Ensures content respects its container */
 }
 
 @media (max-width: 768px) {
@@ -20,11 +25,11 @@
     flex-direction: column;
   }
 
-  .sidebar {
-    border-right: none;
-    border-bottom: 1px solid #e0e0e0;
-    padding-right: 0;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+  .sidebarWrapper {
+    flex-basis: auto;
+    max-width: none;
+    width: 100%;
+    position: static;
+    max-height: none;
   }
 }

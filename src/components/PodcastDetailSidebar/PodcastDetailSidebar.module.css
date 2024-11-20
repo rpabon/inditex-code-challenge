@@ -1,15 +1,25 @@
 .sidebar {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   padding: 20px;
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.info {
-  margin-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e0e0e0;
+.image {
+  width: 100%;
+  height: auto;
+  max-width: 260px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.title,
+.author,
+.description {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .title {
@@ -20,12 +30,16 @@
 
 .author {
   font-style: italic;
-  color: var(--color-text-light);
+  color: #666;
+  margin-bottom: 15px;
 }
 
+.description {
+  margin-top: 20px;
+}
 .description h3 {
-  font-size: var(--font-size-md);
-  margin-bottom: var(--spacing-sm);
+  font-size: 1em;
+  margin-bottom: 10px;
 }
 
 .description p {
