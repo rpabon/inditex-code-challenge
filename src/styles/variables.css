@@ -12,7 +12,8 @@
   --color-text: #333;
   --color-text-light: #666;
   --color-border: #dee2e6;
-  --color-card-background: #ffffff; /* New color for card background */
+  --color-card-background: #ffffff;
+  --color-error: #dc3545;
 
   /* Links */
   --link-text-decoration: none;
@@ -38,6 +39,7 @@
   --font-size-xl: 1.5rem;
 
   /* Borders */
+  --border: 1px solid var(--color-border);
   --border-radius: 4px;
   --border-width: 1px;
   --border-style: solid;

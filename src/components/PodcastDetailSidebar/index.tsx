@@ -12,9 +12,10 @@ export const PodcastDetailSidebar: React.FC<PodcastDetailSidebarProps> = ({
 }) => {
   const { podcastInfo, loading, error } = usePodcastInfo(podcastId);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-  if (!podcastInfo) return <div>No podcast information available</div>;
+  if (loading) return <div className={styles.loading}>Loading...</div>;
+  if (error) return <div className={styles.error}>Error: {error.message}</div>;
+  if (!podcastInfo)
+    return <div className={styles.error}>No podcast information available</div>;
 
   const title = podcastInfo['im:name'].label;
   const author = podcastInfo['im:artist'].label;
@@ -22,15 +23,17 @@ export const PodcastDetailSidebar: React.FC<PodcastDetailSidebarProps> = ({
   const description = podcastInfo.summary.label;
 
   return (
-    <div className={styles.sidebar}>
-      <PodcastImage image={image} alt={title} />
-      <div className={styles.info}>
+    <div className={styles.sidebarCard}>
+      <div className={styles.imageWrapper}>
+        <PodcastImage image={image} alt={title} />
+      </div>
+      <div className={styles.infoWrapper}>
         <h2 className={styles.title}>{title}</h2>
         <p className={styles.author}>by {author}</p>
       </div>
-      <div className={styles.description}>
-        <h3>Description:</h3>
-        <p>{description}</p>
+      <div className={styles.descriptionWrapper}>
+        <h3 className={styles.descriptionTitle}>Description:</h3>
+        <p className={styles.description}>{description}</p>
       </div>
     </div>
   );

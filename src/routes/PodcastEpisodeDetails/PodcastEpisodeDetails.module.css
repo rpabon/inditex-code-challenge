@@ -1,24 +1,25 @@
 .episodeDetails {
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-md);
+  background-color: var(--color-card-background);
+  border-radius: var(--card-border-radius);
+  box-shadow: var(--card-box-shadow);
+  border: var(--border);
 }
 
 .episodeDetails h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #333;
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
 }
 
 .episodeDetails p {
-  font-size: 16px;
+  font-size: var(--font-size-md);
   line-height: 1.5;
-  color: #666;
-  margin-bottom: 20px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
 }
 
 .episodeDetails audio {
   width: 100%;
-  margin-top: 20px;
+  margin-top: var(--spacing-md);
 }

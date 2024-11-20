@@ -3,6 +3,7 @@
   background-color: #f0f0f0; /* Light gray background color */
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
+  border-radius: var(--border-radius);
 }
 
 .image.loaded {
