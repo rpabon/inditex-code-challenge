@@ -1,6 +1,6 @@
 import { PodcastEpisode } from '@/types/PodcastEpisode';
 
-export interface PodcastEpisodes {
+export interface PodcastDetails {
   resultCount: number;
   results: PodcastEpisode[];
 }

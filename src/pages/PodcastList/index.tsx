@@ -5,9 +5,13 @@ import { usePodcastFeed } from '@/hooks/usePodcastFeed';
 import styles from './PodcastList.module.css';
 
 export const PodcastList: React.FC = () => {
-  const { podcastFeed, loading, error } = usePodcastFeed();
+  const { podcastFeed, loading, error, fetchPodcastFeed } = usePodcastFeed();
   const podcastList = podcastFeed?.feed?.entry || [];
   const [filteredPodcasts, setFilteredPodcasts] = useState(podcastList);
+
+  useEffect(() => {
+    fetchPodcastFeed();
+  }, []);
 
   useEffect(() => {
     setFilteredPodcasts(podcastList);
