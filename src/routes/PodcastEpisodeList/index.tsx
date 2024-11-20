@@ -14,7 +14,10 @@ export const PodcastEpisodeList: React.FC = () => {
 
   return (
     <div className={styles.episodeList}>
-      <h2>Episodes: {episodes.length}</h2>
+      <div className={styles.episodeCard}>
+        <h2>Episodes: {episodes.length}</h2>
+      </div>
+
       <table className={styles.episodeTable}>
         <thead>
           <tr>
@@ -27,8 +30,11 @@ export const PodcastEpisodeList: React.FC = () => {
           {episodes.map((episode) => (
             <tr key={episode.trackId}>
               <td>
-                <Link to={`/podcast/${podcastId}/episode/${episode.trackId}`}>
-                  {episode.trackName}
+                <Link
+                  to={`/podcast/${podcastId}/episode/${episode.trackId}`}
+                  className={styles.episodeLink}
+                >
+                  <strong>{episode.trackName}</strong>
                 </Link>
               </td>
               <td>{new Date(episode.releaseDate).toLocaleDateString()}</td>

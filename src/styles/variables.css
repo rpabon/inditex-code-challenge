@@ -5,12 +5,23 @@
     'Helvetica Neue', sans-serif;
 
   /* Colors */
-  --color-primary: #007bff;
+  --color-primary: #1e90ff; /* Changed to a nicer blue */
+  --color-primary-hover: #0066cc; /* New hover color for links */
   --color-secondary: #6c757d;
   --color-background: #f8f9fa;
   --color-text: #333;
   --color-text-light: #666;
   --color-border: #dee2e6;
+  --color-card-background: #ffffff; /* New color for card background */
+
+  /* Links */
+  --link-text-decoration: none;
+  --link-transition: color 0.3s ease;
+
+  /* Card */
+  --card-padding: var(--spacing-md);
+  --card-border-radius: var(--border-radius);
+  --card-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   /* Spacing */
   --spacing-xs: 4px;
