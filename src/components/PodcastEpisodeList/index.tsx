@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { usePodcastDetails } from '@/hooks/usePodcastDetails';
 import styles from './PodcastEpisodeList.module.css';
 
@@ -38,7 +39,11 @@ export const PodcastEpisodeList: React.FC<PodcastEpisodeListProps> = ({
         <tbody>
           {episodes.map((episode) => (
             <tr key={episode.trackId}>
-              <td>{episode.trackName}</td>
+              <td>
+                <Link to={`/podcast/${podcastId}/episode/${episode.trackId}`}>
+                  {episode.trackName}
+                </Link>
+              </td>
               <td>{new Date(episode.releaseDate).toLocaleDateString()}</td>
               <td>{formatDuration(episode.trackTimeMillis)}</td>
             </tr>
