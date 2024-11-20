@@ -1,33 +1,33 @@
 .card {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: var(--spacing-sm);
   background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
   overflow: hidden;
   transition: box-shadow 0.3s ease-in-out;
   text-decoration: none;
   color: inherit;
-  height: 100px; /* Fixed height to prevent vertical stretching */
+  height: 100px;
 }
 
 .card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow-hover);
 }
 
 .content {
   flex: 1;
-  padding: 12px;
+  padding: var(--spacing-sm);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden; /* Ensure content doesn't overflow */
+  overflow: hidden;
 }
 
 .title {
-  margin: 0 0 4px 0;
-  font-size: 1rem;
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-md);
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -36,8 +36,8 @@
 
 .author {
   margin: 0;
-  font-size: 0.8rem;
-  color: #666;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

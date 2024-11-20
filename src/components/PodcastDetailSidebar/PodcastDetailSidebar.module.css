@@ -20,16 +20,12 @@
 
 .author {
   font-style: italic;
-  color: #666;
-}
-
-.description {
-  margin-top: 20px;
+  color: var(--color-text-light);
 }
 
 .description h3 {
-  font-size: 1em;
-  margin-bottom: 10px;
+  font-size: var(--font-size-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .description p {

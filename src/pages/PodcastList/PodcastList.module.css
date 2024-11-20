@@ -1,0 +1,14 @@
+.podcastFilterContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.podcastItem a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.podcastList {
+  padding: var(--spacing-xl);
+}
