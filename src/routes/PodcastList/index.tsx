@@ -16,16 +16,18 @@ export const PodcastList: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{title}</h1>
+      <div className={styles.fixedHeader}>
+        <h2 className={styles.title}>{title}</h2>
 
-      <div className={styles.podcastFilterContainer}>
-        <PodcastFilter
-          podcasts={podcastList}
-          onFilterChange={handleFilterChange}
-        />
-        <span className={styles.podcastFilterCount}>
-          {filteredPodcasts.length}
-        </span>
+        <div className={styles.filterWrapper}>
+          <PodcastFilter
+            podcasts={podcastList}
+            onFilterChange={handleFilterChange}
+          />
+          <span className={styles.podcastFilterCount}>
+            {filteredPodcasts.length}
+          </span>
+        </div>
       </div>
 
       <div className={styles.podcastGrid}>

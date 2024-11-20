@@ -22,14 +22,12 @@ export const PodcastFilter: React.FC<PodcastFilterProps> = ({
   };
 
   return (
-    <div className={styles.filterContainer}>
-      <input
-        type="text"
-        placeholder="Filter podcasts..."
-        value={filterText}
-        onChange={onInputChange}
-        className={styles.filterInput}
-      />
-    </div>
+    <input
+      type="text"
+      placeholder="Filter podcasts by title or author..."
+      value={filterText}
+      onChange={onInputChange}
+      className={styles.filterInput}
+    />
   );
 };
