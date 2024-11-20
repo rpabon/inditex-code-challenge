@@ -48,4 +48,9 @@
   /* Shadows */
   --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   --box-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  /* Loader Sizes */
+  --loader-size-small: 40px;
+  --loader-size-medium: 60px;
+  --loader-size-large: 80px;
 }

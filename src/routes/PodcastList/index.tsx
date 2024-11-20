@@ -1,6 +1,7 @@
 import React from 'react';
 import { PodcastCard } from '@/components/PodcastCard';
 import { PodcastFilter } from '@/components/PodcastFilter';
+import { LoaderSpinner } from '@/components/LoaderSpinner/LoaderSpinner';
 import { usePodcastListLogic } from './usePodcastListLogic';
 import styles from './PodcastList.module.css';
 
@@ -8,7 +9,14 @@ export const PodcastList: React.FC = () => {
   const { podcastFeed, loading, error, filteredPodcasts, handleFilterChange } =
     usePodcastListLogic();
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div className={styles.loading}>
+        <LoaderSpinner />
+      </div>
+    );
+  }
+
   if (error) return <div>Error: {error.message}</div>;
 
   const title = podcastFeed?.feed?.title.label;
