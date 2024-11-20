@@ -1,5 +1,6 @@
-import React, { ChangeEvent, useState, useCallback } from 'react';
+import React, { ChangeEvent } from 'react';
 import { PodcastEntry } from '@/types/PodcastEntry';
+import { usePodcastFilterLogic } from './usePodcastFilterLogic';
 import styles from './PodcastFilter.module.css';
 
 interface PodcastFilterProps {
@@ -11,26 +12,14 @@ export const PodcastFilter: React.FC<PodcastFilterProps> = ({
   podcasts,
   onFilterChange,
 }) => {
-  const [filterText, setFilterText] = useState('');
-
-  const matchStrings = (str1: string, str2: string): boolean =>
-    str1.toLowerCase().includes(str2.toLowerCase());
-
-  const handleFilterChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      const text = e.target.value.toLowerCase();
-      setFilterText(text);
-
-      const filtered = podcasts.filter(
-        (podcast) =>
-          matchStrings(podcast['im:name'].label, text) ||
-          matchStrings(podcast['im:artist'].label, text),
-      );
-
-      onFilterChange(filtered);
-    },
-    [podcasts, onFilterChange],
+  const { filterText, handleFilterChange } = usePodcastFilterLogic(
+    podcasts,
+    onFilterChange,
   );
+
+  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    handleFilterChange(e.target.value);
+  };
 
   return (
     <div className={styles.filterContainer}>
@@ -38,7 +27,7 @@ export const PodcastFilter: React.FC<PodcastFilterProps> = ({
         type="text"
         placeholder="Filter podcasts..."
         value={filterText}
-        onChange={handleFilterChange}
+        onChange={onInputChange}
         className={styles.filterInput}
       />
     </div>

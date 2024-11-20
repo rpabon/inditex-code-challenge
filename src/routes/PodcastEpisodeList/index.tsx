@@ -1,26 +1,16 @@
-import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { usePodcastDetails } from '@/hooks/usePodcastDetails';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { formatDuration } from './PodcastEpisodeList.utils';
+import { usePodcastEpisodeListLogic } from './usePodcastEpisodeListLogic';
 import styles from './PodcastEpisodeList.module.css';
 
 export const PodcastEpisodeList: React.FC = () => {
-  const { podcastId } = useParams<{ podcastId: string }>();
-  const { podcastDetails, loading, error, fetchPodcastDetails } =
-    usePodcastDetails();
-
-  useEffect(() => {
-    if (podcastId) {
-      fetchPodcastDetails(podcastId);
-    }
-  }, [podcastId, fetchPodcastDetails]);
+  const { podcastId, episodes, loading, error, podcastDetails } =
+    usePodcastEpisodeListLogic();
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
   if (!podcastDetails) return <div>No podcast details available</div>;
-
-  // Remove first element as it's not an episode
-  const episodes = podcastDetails.results.slice(1);
 
   return (
     <div className={styles.episodeList}>
