@@ -1,0 +1,24 @@
+.episodeList {
+  margin-top: 20px;
+}
+
+.episodeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.episodeTable th,
+.episodeTable td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.episodeTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.episodeTable tr:hover {
+  background-color: #f5f5f5;
+}
