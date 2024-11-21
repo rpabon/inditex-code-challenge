@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { usePodcastDetails } from '@/hooks/usePodcastDetails';
 
-export const usePodcastEpisodeListLogic = () => {
+export const usePodcastEpisodeList = () => {
   const { podcastId } = useParams<{ podcastId: string }>();
   const { podcastDetails, fetchPodcastDetails } = usePodcastDetails();
 
@@ -12,11 +12,11 @@ export const usePodcastEpisodeListLogic = () => {
     }
   }, [podcastId, fetchPodcastDetails]);
 
+  // Remove first element because it is not an episode
   const episodes = podcastDetails?.results.slice(1) || [];
 
   return {
     podcastId,
     episodes,
-    podcastDetails,
   };
 };

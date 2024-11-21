@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { PodcastImage } from '@/components/PodcastImage';
 import { PodcastEntry } from '@/types/PodcastEntry';
+import { usePodcastCard } from './usePodcastCard';
 import styles from './PodcastCard.module.css';
 
 interface PodcastCardProps {
@@ -9,23 +9,25 @@ interface PodcastCardProps {
 }
 
 export const PodcastCard: React.FC<PodcastCardProps> = ({ podcast }) => {
+  const navigateToPodcast = usePodcastCard();
+  const id = podcast.id.attributes['im:id'];
   const title = podcast['im:name'].label;
   const author = podcast['im:artist'].label;
+  const image = podcast['im:image'][1];
 
   return (
-    <Link
-      to={`/podcast/${podcast.id.attributes['im:id']}`}
-      className={styles.card}
-    >
-      <PodcastImage image={podcast['im:image'][1]} alt={title} />
+    <div className={styles.card} onClick={() => navigateToPodcast(id)}>
+      <PodcastImage image={image} alt={title} />
+
       <div className={styles.content}>
         <h3 className={styles.title} title={title}>
           {title}
         </h3>
+
         <p className={styles.author} title={author}>
           {author}
         </p>
       </div>
-    </Link>
+    </div>
   );
 };

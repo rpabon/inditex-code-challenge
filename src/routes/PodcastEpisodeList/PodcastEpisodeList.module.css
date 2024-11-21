@@ -29,6 +29,7 @@
 }
 
 .episodeLink {
+  cursor: pointer;
   color: var(--color-primary);
   text-decoration: var(--link-text-decoration);
   transition: var(--link-transition);

@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { formatDuration } from './PodcastEpisodeList.utils';
-import { usePodcastEpisodeListLogic } from './usePodcastEpisodeListLogic';
+import { usePodcastEpisodeList } from './usePodcastEpisodeList';
+import { usePodcastEpisode } from './usePodcastEpisode';
 import styles from './PodcastEpisodeList.module.css';
 
 export const PodcastEpisodeList: React.FC = () => {
-  const { podcastId, episodes, podcastDetails } = usePodcastEpisodeListLogic();
-
-  if (!podcastDetails) return <div>No podcast details available</div>;
+  const { podcastId, episodes } = usePodcastEpisodeList();
+  const navigateToEpisode = usePodcastEpisode(podcastId);
 
   return (
     <div className={styles.episodeList}>
@@ -27,12 +26,12 @@ export const PodcastEpisodeList: React.FC = () => {
           {episodes.map((episode) => (
             <tr key={episode.trackId}>
               <td>
-                <Link
-                  to={`/podcast/${podcastId}/episode/${episode.trackId}`}
+                <div
                   className={styles.episodeLink}
+                  onClick={() => navigateToEpisode(episode.trackId)}
                 >
-                  <strong>{episode.trackName}</strong>
-                </Link>
+                  {episode.trackName}
+                </div>
               </td>
               <td>{new Date(episode.releaseDate).toLocaleDateString()}</td>
               <td>{formatDuration(episode.trackTimeMillis)}</td>
