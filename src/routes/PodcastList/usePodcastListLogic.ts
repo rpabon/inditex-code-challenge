@@ -3,7 +3,7 @@ import { usePodcastFeed } from '@/hooks/usePodcastFeed';
 import { PodcastEntry } from '@/types/PodcastEntry';
 
 export const usePodcastListLogic = () => {
-  const { podcastFeed, error, fetchPodcastFeed } = usePodcastFeed();
+  const { podcastFeed, fetchPodcastFeed } = usePodcastFeed();
   const [filteredPodcasts, setFilteredPodcasts] = useState<PodcastEntry[]>([]);
 
   useEffect(() => {
@@ -22,7 +22,6 @@ export const usePodcastListLogic = () => {
 
   return {
     podcastFeed,
-    error,
     filteredPodcasts,
     handleFilterChange,
   };

@@ -1,11 +1,12 @@
-import { useState, useCallback } from 'react';
-import { useLoading } from './useLoading';
+import { useCallback } from 'react';
+import { useLoading } from '@/hooks/useLoading';
+import { useError } from '@/hooks/useError';
 
 const ALL_ORIGINS_URL = 'https://api.allorigins.win/get';
 
 export const useFetchAllOrigins = () => {
-  const [error, setError] = useState<Error | null>(null);
   const { setLoading } = useLoading();
+  const { setError } = useError();
 
   const handleError = useCallback((message: string) => {
     const error = new Error(message);
@@ -46,8 +47,5 @@ export const useFetchAllOrigins = () => {
     [handleError],
   );
 
-  return {
-    fetchUrl,
-    error,
-  };
+  return fetchUrl;
 };

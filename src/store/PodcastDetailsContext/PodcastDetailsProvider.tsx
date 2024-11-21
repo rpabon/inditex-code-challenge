@@ -13,7 +13,7 @@ export const PodcastDetailsProvider: React.FC<{
   const [podcastDetails, setPodcastDetails] = useState<PodcastDetails | null>(
     null,
   );
-  const { fetchUrl, error } = useFetchAllOrigins();
+  const fetchUrl = useFetchAllOrigins();
 
   const fetchPodcastDetails = useCallback(async (podcastId: string) => {
     const storageKey = `${STORAGE_KEY_BASE}_${podcastId}`;
@@ -46,7 +46,7 @@ export const PodcastDetailsProvider: React.FC<{
 
   return (
     <PodcastDetailsContext.Provider
-      value={{ podcastDetails, error, fetchPodcastDetails }}
+      value={{ podcastDetails, fetchPodcastDetails }}
     >
       {children}
     </PodcastDetailsContext.Provider>

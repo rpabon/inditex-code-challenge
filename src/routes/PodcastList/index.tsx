@@ -5,10 +5,8 @@ import { usePodcastListLogic } from './usePodcastListLogic';
 import styles from './PodcastList.module.css';
 
 export const PodcastList: React.FC = () => {
-  const { podcastFeed, error, filteredPodcasts, handleFilterChange } =
+  const { podcastFeed, filteredPodcasts, handleFilterChange } =
     usePodcastListLogic();
-
-  if (error) return <div>Error: {error.message}</div>;
 
   const title = podcastFeed?.feed?.title.label;
   const podcastList = podcastFeed?.feed?.entry || [];

@@ -5,10 +5,8 @@ import { usePodcastEpisodeListLogic } from './usePodcastEpisodeListLogic';
 import styles from './PodcastEpisodeList.module.css';
 
 export const PodcastEpisodeList: React.FC = () => {
-  const { podcastId, episodes, error, podcastDetails } =
-    usePodcastEpisodeListLogic();
+  const { podcastId, episodes, podcastDetails } = usePodcastEpisodeListLogic();
 
-  if (error) return <div>Error: {error.message}</div>;
   if (!podcastDetails) return <div>No podcast details available</div>;
 
   return (

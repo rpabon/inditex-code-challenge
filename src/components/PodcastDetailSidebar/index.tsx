@@ -10,9 +10,8 @@ interface PodcastDetailSidebarProps {
 export const PodcastDetailSidebar: React.FC<PodcastDetailSidebarProps> = ({
   podcastId,
 }) => {
-  const { podcastInfo, error } = usePodcastInfo(podcastId);
+  const podcastInfo = usePodcastInfo(podcastId);
 
-  if (error) return <div className={styles.error}>Error: {error.message}</div>;
   if (!podcastInfo)
     return <div className={styles.error}>No podcast information available</div>;
 

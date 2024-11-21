@@ -3,7 +3,7 @@ import { PodcastEntry } from '@/types/PodcastEntry';
 import { usePodcastFeed } from './usePodcastFeed';
 
 export const usePodcastInfo = (podcastId?: string) => {
-  const { podcastFeed, error, fetchPodcastFeed } = usePodcastFeed();
+  const { podcastFeed, fetchPodcastFeed } = usePodcastFeed();
 
   useEffect(() => {
     fetchPodcastFeed();
@@ -14,8 +14,5 @@ export const usePodcastInfo = (podcastId?: string) => {
     (entry) => entry.id.attributes['im:id'] === podcastId,
   );
 
-  return {
-    podcastInfo,
-    error,
-  };
+  return podcastInfo;
 };

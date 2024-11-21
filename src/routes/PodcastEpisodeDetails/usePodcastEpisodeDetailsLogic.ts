@@ -7,7 +7,7 @@ export const usePodcastEpisodeDetailsLogic = () => {
     podcastId: string;
     episodeId: string;
   }>();
-  const { podcastDetails, error, fetchPodcastDetails } = usePodcastDetails();
+  const { podcastDetails, fetchPodcastDetails } = usePodcastDetails();
 
   useEffect(() => {
     if (podcastId) {
@@ -19,8 +19,5 @@ export const usePodcastEpisodeDetailsLogic = () => {
     (episode) => episode.trackId.toString() === episodeId,
   );
 
-  return {
-    error,
-    episode,
-  };
+  return episode;
 };

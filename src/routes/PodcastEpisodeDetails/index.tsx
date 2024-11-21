@@ -3,9 +3,8 @@ import { usePodcastEpisodeDetailsLogic } from './usePodcastEpisodeDetailsLogic';
 import styles from './PodcastEpisodeDetails.module.css';
 
 export const PodcastEpisodeDetails: React.FC = () => {
-  const { error, episode } = usePodcastEpisodeDetailsLogic();
+  const episode = usePodcastEpisodeDetailsLogic();
 
-  if (error) return <div>Error: {error.message}</div>;
   if (!episode) return <div>Episode not found</div>;
 
   return (
