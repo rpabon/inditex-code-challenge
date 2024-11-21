@@ -16,13 +16,13 @@ export const usePodcastListLogic = () => {
     }
   }, [podcastFeed]);
 
-  const handleFilterChange = (filteredPodcasts: PodcastEntry[]) => {
+  const onFilterChange = (filteredPodcasts: PodcastEntry[]) => {
     setFilteredPodcasts(filteredPodcasts);
   };
 
   return {
     podcastFeed,
     filteredPodcasts,
-    handleFilterChange,
+    onFilterChange,
   };
 };

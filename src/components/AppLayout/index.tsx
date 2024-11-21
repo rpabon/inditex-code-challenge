@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import { useLoading } from '@/hooks/useLoading';
 import { LoaderSpinner } from '@/components/LoaderSpinner';
@@ -20,7 +21,9 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         {loading && <LoaderSpinner />}
       </header>
 
-      <main className={styles.main}>{children}</main>
+      <main className={cx(styles.main, { [styles.loading]: loading })}>
+        {children}
+      </main>
 
       <footer className={styles.footer}>
         <p>&copy; {new Date().getFullYear()} | Developed by Ricardo Pabón</p>

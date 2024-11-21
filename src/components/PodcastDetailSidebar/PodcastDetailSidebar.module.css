@@ -1,4 +1,5 @@
 .sidebarCard {
+  display: block;
   background-color: var(--color-card-background);
   border: var(--border);
   border-radius: var(--card-border-radius);

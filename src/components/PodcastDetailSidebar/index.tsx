@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { PodcastImage } from '@/components/PodcastImage';
 import { usePodcastInfo } from '@/hooks/usePodcastInfo';
 import styles from './PodcastDetailSidebar.module.css';
@@ -21,7 +22,7 @@ export const PodcastDetailSidebar: React.FC<PodcastDetailSidebarProps> = ({
   const description = podcastInfo.summary.label;
 
   return (
-    <div className={styles.sidebarCard}>
+    <Link className={styles.sidebarCard} to={`/podcast/${podcastId}`}>
       <div className={styles.imageWrapper}>
         <PodcastImage image={image} alt={title} />
       </div>
@@ -33,6 +34,6 @@ export const PodcastDetailSidebar: React.FC<PodcastDetailSidebarProps> = ({
         <h3 className={styles.descriptionTitle}>Description:</h3>
         <p className={styles.description}>{description}</p>
       </div>
-    </div>
+    </Link>
   );
 };

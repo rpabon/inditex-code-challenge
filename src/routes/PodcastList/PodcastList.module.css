@@ -1,33 +1,8 @@
-.container {
-  padding-top: 80px; /* Adjust based on the height of your fixed header */
-}
-
-.fixedHeader {
-  {{/* position: fixed;
-  top: 0;
-  left: 0;
-  right: 0; */}}
-  background-color: var(--color-background);
-  padding: var(--spacing-md);
-  z-index: 1000;
-  box-shadow: var(--box-shadow);
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.title {
-  font-size: var(--font-size-lg);
-  margin: 0;
-  padding-right: var(--spacing-md);
-}
-
 .filterWrapper {
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 40%;
+  margin-bottom: 12px;
 }
 
 .podcastFilterCount {
