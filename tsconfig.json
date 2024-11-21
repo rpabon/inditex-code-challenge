@@ -21,7 +21,7 @@
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "outDir": "./dist",
     "typeRoots": ["./node_modules/@types"],
-    "types": ["node"]
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
-  "include": ["src"]
+  "include": ["src/**/*", "**/*.test.ts", "**/*.test.tsx"]
 }
