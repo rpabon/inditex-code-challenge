@@ -1,19 +1,28 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { useLoading } from '@/hooks/useLoading';
+import { LoaderSpinner } from '@/components/LoaderSpinner';
 import styles from './AppLayout.module.css';
 
-export const AppLayout: React.FC = () => {
+interface AppLayoutProps {
+  children: ReactNode;
+}
+
+export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const { loading } = useLoading();
 
   return (
     <div className={styles.appLayout}>
-      <main className={styles.main}>
-        <Outlet />
-      </main>
+      <header className={styles.header}>
+        <Link to="/" className={styles.title}>
+          Podcaster
+        </Link>
+        {loading && <LoaderSpinner />}
+      </header>
+
+      <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>
-        {loading && <p>Loading...</p>}
         <p>&copy; {new Date().getFullYear()} | Developed by Ricardo Pabón</p>
       </footer>
     </div>

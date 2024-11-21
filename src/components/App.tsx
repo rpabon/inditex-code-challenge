@@ -9,8 +9,8 @@ import { PodcastEpisodeList } from '@/routes/PodcastEpisodeList';
 export const App: React.FC = () => {
   return (
     <Router>
-      <Routes>
-        <Route element={<AppLayout />}>
+      <AppLayout>
+        <Routes>
           <Route path="/" element={<PodcastList />} />
           <Route path="/podcast/:podcastId" element={<SinglePodcastOverview />}>
             <Route index element={<PodcastEpisodeList />} />
@@ -19,8 +19,8 @@ export const App: React.FC = () => {
               element={<PodcastEpisodeDetails />}
             />
           </Route>
-        </Route>
-      </Routes>
+        </Routes>
+      </AppLayout>
     </Router>
   );
 };
