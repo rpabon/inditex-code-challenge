@@ -1,6 +1,5 @@
 import React from 'react';
 import { PodcastImage } from '@/components/PodcastImage';
-import { LoaderSpinner } from '@/components/LoaderSpinner/LoaderSpinner';
 import { usePodcastInfo } from '@/hooks/usePodcastInfo';
 import styles from './PodcastDetailSidebar.module.css';
 
@@ -11,15 +10,7 @@ interface PodcastDetailSidebarProps {
 export const PodcastDetailSidebar: React.FC<PodcastDetailSidebarProps> = ({
   podcastId,
 }) => {
-  const { podcastInfo, loading, error } = usePodcastInfo(podcastId);
-
-  if (loading) {
-    return (
-      <div className={styles.loading}>
-        <LoaderSpinner />
-      </div>
-    );
-  }
+  const { podcastInfo, error } = usePodcastInfo(podcastId);
 
   if (error) return <div className={styles.error}>Error: {error.message}</div>;
   if (!podcastInfo)

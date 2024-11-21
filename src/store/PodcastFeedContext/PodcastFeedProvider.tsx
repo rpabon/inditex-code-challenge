@@ -12,7 +12,7 @@ export const PodcastFeedProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [podcastFeed, setPodcastFeed] = useState<PodcastFeed | null>(null);
-  const { fetchUrl, loading, error } = useFetchAllOrigins();
+  const { fetchUrl, error } = useFetchAllOrigins();
 
   const fetchPodcastFeed = useCallback(async () => {
     const cachedFeed = getItemFromStorage<PodcastFeed>(STORAGE_KEY);
@@ -34,7 +34,7 @@ export const PodcastFeedProvider: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <PodcastFeedContext.Provider
-      value={{ podcastFeed, loading, error, fetchPodcastFeed }}
+      value={{ podcastFeed, error, fetchPodcastFeed }}
     >
       {children}
     </PodcastFeedContext.Provider>

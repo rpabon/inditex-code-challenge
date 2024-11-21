@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { usePodcastFeed } from './usePodcastFeed';
 import { PodcastEntry } from '@/types/PodcastEntry';
+import { usePodcastFeed } from './usePodcastFeed';
 
 export const usePodcastInfo = (podcastId?: string) => {
-  const { podcastFeed, loading, error, fetchPodcastFeed } = usePodcastFeed();
+  const { podcastFeed, error, fetchPodcastFeed } = usePodcastFeed();
 
   useEffect(() => {
     fetchPodcastFeed();
@@ -16,7 +16,6 @@ export const usePodcastInfo = (podcastId?: string) => {
 
   return {
     podcastInfo,
-    loading,
     error,
   };
 };

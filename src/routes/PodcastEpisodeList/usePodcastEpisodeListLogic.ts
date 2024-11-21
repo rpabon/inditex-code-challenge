@@ -4,7 +4,7 @@ import { usePodcastDetails } from '@/hooks/usePodcastDetails';
 
 export const usePodcastEpisodeListLogic = () => {
   const { podcastId } = useParams<{ podcastId: string }>();
-  const { podcastDetails, loading, error, fetchPodcastDetails } =
+  const { podcastDetails, error, fetchPodcastDetails } =
     usePodcastDetails();
 
   useEffect(() => {
@@ -18,7 +18,6 @@ export const usePodcastEpisodeListLogic = () => {
   return {
     podcastId,
     episodes,
-    loading,
     error,
     podcastDetails,
   };

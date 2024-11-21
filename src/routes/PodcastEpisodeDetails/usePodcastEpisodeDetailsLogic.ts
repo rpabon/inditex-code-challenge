@@ -7,8 +7,7 @@ export const usePodcastEpisodeDetailsLogic = () => {
     podcastId: string;
     episodeId: string;
   }>();
-  const { podcastDetails, loading, error, fetchPodcastDetails } =
-    usePodcastDetails();
+  const { podcastDetails, error, fetchPodcastDetails } = usePodcastDetails();
 
   useEffect(() => {
     if (podcastId) {
@@ -21,7 +20,6 @@ export const usePodcastEpisodeDetailsLogic = () => {
   );
 
   return {
-    loading,
     error,
     episode,
   };

@@ -1,18 +1,9 @@
 import React from 'react';
-import { LoaderSpinner } from '@/components/LoaderSpinner/LoaderSpinner';
 import { usePodcastEpisodeDetailsLogic } from './usePodcastEpisodeDetailsLogic';
 import styles from './PodcastEpisodeDetails.module.css';
 
 export const PodcastEpisodeDetails: React.FC = () => {
-  const { loading, error, episode } = usePodcastEpisodeDetailsLogic();
-
-  if (loading) {
-    return (
-      <div className={styles.loading}>
-        <LoaderSpinner />
-      </div>
-    );
-  }
+  const { error, episode } = usePodcastEpisodeDetailsLogic();
 
   if (error) return <div>Error: {error.message}</div>;
   if (!episode) return <div>Episode not found</div>;

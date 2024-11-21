@@ -1,21 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LoaderSpinner } from '@/components/LoaderSpinner/LoaderSpinner';
 import { formatDuration } from './PodcastEpisodeList.utils';
 import { usePodcastEpisodeListLogic } from './usePodcastEpisodeListLogic';
 import styles from './PodcastEpisodeList.module.css';
 
 export const PodcastEpisodeList: React.FC = () => {
-  const { podcastId, episodes, loading, error, podcastDetails } =
+  const { podcastId, episodes, error, podcastDetails } =
     usePodcastEpisodeListLogic();
-
-  if (loading) {
-    return (
-      <div className={styles.loading}>
-        <LoaderSpinner />
-      </div>
-    );
-  }
 
   if (error) return <div>Error: {error.message}</div>;
   if (!podcastDetails) return <div>No podcast details available</div>;

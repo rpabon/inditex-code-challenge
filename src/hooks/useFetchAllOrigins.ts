@@ -1,17 +1,18 @@
 import { useState, useCallback } from 'react';
+import { useLoading } from './useLoading';
 
 const ALL_ORIGINS_URL = 'https://api.allorigins.win/get';
 
 export const useFetchAllOrigins = () => {
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  const { setLoading } = useLoading();
 
   const handleError = useCallback((message: string) => {
     const error = new Error(message);
     setError(error);
     return null;
   }, []);
-  
+
   const fetchUrl = useCallback(
     async <T>(url: string): Promise<T | null> => {
       setLoading(true);
@@ -47,7 +48,6 @@ export const useFetchAllOrigins = () => {
 
   return {
     fetchUrl,
-    loading,
     error,
   };
 };
