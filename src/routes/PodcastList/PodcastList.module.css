@@ -27,6 +27,7 @@
 .filterWrapper {
   display: flex;
   align-items: center;
+  width: 50%;
 }
 
 .podcastFilterCount {
@@ -42,6 +43,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--spacing-lg);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 @media (max-width: 768px) {

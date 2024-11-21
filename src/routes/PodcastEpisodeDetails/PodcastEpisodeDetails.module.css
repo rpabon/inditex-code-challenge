@@ -1,25 +1,49 @@
 .episodeDetails {
   padding: var(--spacing-md);
-  background-color: var(--color-card-background);
-  border-radius: var(--card-border-radius);
-  box-shadow: var(--card-box-shadow);
-  border: var(--border);
+  background-color: var(--color-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
-.episodeDetails h2 {
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-text-primary);
-}
-
-.episodeDetails p {
-  font-size: var(--font-size-md);
-  line-height: 1.5;
-  color: var(--color-text-secondary);
+.description {
   margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+  overflow-wrap: break-word;
 }
 
-.episodeDetails audio {
-  width: 100%;
+.description a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.description a:hover {
+  text-decoration: underline;
+}
+
+/* Ensure images don't overflow their container */
+.description img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Basic styling for potential lists in the description */
+.description ul,
+.description ol {
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Adjust heading sizes if they appear in the description */
+.description h1,
+.description h2,
+.description h3,
+.description h4,
+.description h5,
+.description h6 {
   margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.audio {
+  width: 100%;
 }

@@ -20,8 +20,11 @@ export const PodcastEpisodeDetails: React.FC = () => {
   return (
     <div className={styles.episodeDetails}>
       <h2>{episode.trackName}</h2>
-      <p>{episode.description}</p>
-      <audio controls src={episode.previewUrl}>
+      <div
+        className={styles.description}
+        dangerouslySetInnerHTML={{ __html: episode.description }}
+      />
+      <audio controls src={episode.previewUrl} className={styles.audio}>
         Your browser does not support the audio element.
       </audio>
     </div>
