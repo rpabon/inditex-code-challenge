@@ -1,23 +1,20 @@
 import { useCallback } from 'react';
 import { useLoading } from '@/hooks/useLoading';
-import { useError } from '@/hooks/useError';
 
 const ALL_ORIGINS_URL = 'https://api.allorigins.win/get';
 
 export const useFetchAllOrigins = () => {
   const { setLoading } = useLoading();
-  const { setError } = useError();
 
   const handleError = useCallback((message: string) => {
     const error = new Error(message);
-    setError(error);
+    console.error(error);
     return null;
   }, []);
 
   const fetchUrl = useCallback(
     async <T>(url: string): Promise<T | null> => {
       setLoading(true);
-      setError(null);
 
       try {
         const allOriginsUrl = new URL(ALL_ORIGINS_URL);
