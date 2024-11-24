@@ -20,7 +20,7 @@ export const PodcastImage: React.FC<PodcastImageProps> = ({ image, alt }) => {
       src={image.label}
       alt={alt}
       className={cx(styles.image, { [styles.loaded]: isLoaded })}
-      style={{ height: `${image.attributes.height}px` }}
+      style={{ height: `${image.attributes?.height}px` }}
       onLoad={onImageLoad}
     />
   );
