@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from '@/components/Card/Card';
 import { PodcastImage } from '@/components/PodcastImage';
 import { PodcastEntry } from '@/types/PodcastEntry';
 import { usePodcastCard } from './usePodcastCard';
@@ -16,8 +17,8 @@ export const PodcastCard: React.FC<PodcastCardProps> = ({ podcast }) => {
   const image = podcast['im:image'][1];
 
   return (
-    <div className={styles.card} onClick={() => navigateToPodcast(id)}>
-      <PodcastImage image={image} alt={title} />
+    <Card className={styles.card} onClick={() => navigateToPodcast(id)}>
+      <PodcastImage image={image} alt={title} className={styles.image} />
 
       <div className={styles.content}>
         <h3 className={styles.title} title={title}>
@@ -28,6 +29,6 @@ export const PodcastCard: React.FC<PodcastCardProps> = ({ podcast }) => {
           {author}
         </p>
       </div>
-    </div>
+    </Card>
   );
 };

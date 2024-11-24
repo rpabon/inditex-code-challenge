@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from '@/components/Card/Card';
 import { formatDuration } from './PodcastEpisodeList.utils';
 import { usePodcastEpisodeList } from './usePodcastEpisodeList';
 import { usePodcastEpisode } from './usePodcastEpisode';
@@ -10,35 +11,35 @@ export const PodcastEpisodeList: React.FC = () => {
 
   return (
     <div className={styles.episodeList}>
-      <div className={styles.episodeCard}>
-        <h2>Episodes: {episodes.length}</h2>
-      </div>
+      <Card className={styles.episodeCard}>Episodes: {episodes.length}</Card>
 
-      <table className={styles.episodeTable}>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
-        <tbody>
-          {episodes.map((episode) => (
-            <tr key={episode.trackId}>
-              <td>
-                <div
-                  className={styles.episodeLink}
-                  onClick={() => navigateToEpisode(episode.trackId)}
-                >
-                  {episode.trackName}
-                </div>
-              </td>
-              <td>{new Date(episode.releaseDate).toLocaleDateString()}</td>
-              <td>{formatDuration(episode.trackTimeMillis)}</td>
+      <div className={styles.tableWrapper}>
+        <table className={styles.episodeTable}>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Date</th>
+              <th>Duration</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {episodes.map((episode) => (
+              <tr key={episode.trackId}>
+                <td>
+                  <div
+                    className={styles.episodeLink}
+                    onClick={() => navigateToEpisode(episode.trackId)}
+                  >
+                    {episode.trackName}
+                  </div>
+                </td>
+                <td>{new Date(episode.releaseDate).toLocaleDateString()}</td>
+                <td>{formatDuration(episode.trackTimeMillis)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

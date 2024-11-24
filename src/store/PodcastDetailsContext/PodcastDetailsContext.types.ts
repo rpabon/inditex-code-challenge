@@ -1,4 +1,4 @@
-import { PodcastDetails } from '@/types/PodcastDetails'; // You'll need to create this type
+import { PodcastDetails } from '@/types/PodcastDetails';
 
 export interface PodcastDetailsContextType {
   podcastDetails: PodcastDetails | null;

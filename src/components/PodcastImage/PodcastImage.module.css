@@ -1,9 +1,16 @@
+.container {
+  background-color: var(--color-lighter-gray);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
 .image {
   width: auto;
-  background-color: #f0f0f0; /* Light gray background color */
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0;
+  height: 100%;
   border-radius: var(--border-radius);
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .image.loaded {

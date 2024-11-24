@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from '@/components/Card/Card';
 import { usePodcastEpisodeDetailsLogic } from './usePodcastEpisodeDetailsLogic';
 import styles from './PodcastEpisodeDetails.module.css';
 
@@ -8,7 +9,7 @@ export const PodcastEpisodeDetails: React.FC = () => {
   if (!episode) return <div>Episode not found</div>;
 
   return (
-    <div className={styles.episodeDetails}>
+    <Card className={styles.episodeDetails}>
       <h2>{episode.trackName}</h2>
       <div
         className={styles.description}
@@ -17,6 +18,6 @@ export const PodcastEpisodeDetails: React.FC = () => {
       <audio controls src={episode.previewUrl} className={styles.audio}>
         Your browser does not support the audio element.
       </audio>
-    </div>
+    </Card>
   );
 };

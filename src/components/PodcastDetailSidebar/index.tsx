@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Card } from '@/components/Card/Card';
 import { PodcastImage } from '@/components/PodcastImage';
 import { usePodcastInfo } from '@/hooks/usePodcastInfo';
 import styles from './PodcastDetailSidebar.module.css';
@@ -22,18 +23,18 @@ export const PodcastDetailSidebar: React.FC<PodcastDetailSidebarProps> = ({
   const description = podcastInfo.summary.label;
 
   return (
-    <Link className={styles.sidebarCard} to={`/podcast/${podcastId}`}>
-      <div className={styles.imageWrapper}>
-        <PodcastImage image={image} alt={title} />
-      </div>
-      <div className={styles.infoWrapper}>
-        <h2 className={styles.title}>{title}</h2>
-        <p className={styles.author}>by {author}</p>
-      </div>
-      <div className={styles.descriptionWrapper}>
+    <Link to={`/podcast/${podcastId}`}>
+      <Card className={styles.sidebarCard}>
+        <PodcastImage className={styles.image} image={image} alt={title} />
+
+        <div className={styles.infoWrapper}>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.author}>by {author}</p>
+        </div>
+
         <h3 className={styles.descriptionTitle}>Description:</h3>
         <p className={styles.description}>{description}</p>
-      </div>
+      </Card>
     </Link>
   );
 };

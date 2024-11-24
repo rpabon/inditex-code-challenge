@@ -1,58 +1,44 @@
 .sidebarCard {
-  display: block;
-  background-color: var(--color-card-background);
-  border: var(--border);
-  border-radius: var(--card-border-radius);
-  box-shadow: var(--card-box-shadow);
   padding: var(--spacing-md);
   width: 300px;
+  color: var(--color-dark-gray);
 }
 
-.imageWrapper {
-  text-align: center;
-  margin-bottom: var(--spacing-md);
+.image {
+  width: 170px;
+  height: 170px;
+  margin: 0 auto;
 }
 
 .infoWrapper {
-  border-top: var(--border);
   border-bottom: var(--border);
-  padding: var(--spacing-md) 0;
-  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  margin-bottom: var(--spacing-sm);
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: var(--font-size-lg);
   font-weight: bold;
-  margin-bottom: var(--spacing-sm);
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
 }
 
 .author {
   font-style: italic;
   color: var(--color-text-light);
-}
-
-.descriptionWrapper {
-  padding-top: var(--spacing-sm);
+  margin: 0;
 }
 
 .descriptionTitle {
-  font-size: 1rem;
+  font-size: var(--font-size-md);
   font-weight: bold;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  margin: 1;
 }
+
 .description {
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.loading,
-.error {
-  padding: var(--spacing-md);
-  background-color: var(--color-background);
-  border-radius: var(--border-radius);
-  text-align: center;
-}
-
-.error {
-  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: var(--spacing-xs);
 }

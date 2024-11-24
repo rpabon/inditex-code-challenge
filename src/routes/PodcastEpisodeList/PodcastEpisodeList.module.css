@@ -1,19 +1,31 @@
 .episodeList {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: calc(
+    100vh - var(--header-height) - var(--footer-height) - var(--spacing-md)
+  );
 }
 
 .episodeCard {
-  background-color: var(--color-card-background);
-  border: var(--border);
-  border-radius: var(--card-border-radius);
-  box-shadow: var(--card-box-shadow);
-  padding: var(--card-padding);
-  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  margin-bottom: var(--spacing-md);
 }
 
+.episodeCard:hover {
+  box-shadow: none;
+}
+
+.tableWrapper {
+  flex: 1;
+  overflow-y: auto;
+}
 .episodeTable {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--font-size-sm);
 }
 
 .episodeTable th,
@@ -24,27 +36,20 @@
 }
 
 .episodeTable th {
-  background-color: var(--color-background);
+  background-color: var(--color-white);
   font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.episodeTable td:nth-child(2),
+.episodeTable td:nth-child(3) {
+  text-align: right;
 }
 
 .episodeLink {
   cursor: pointer;
-  color: var(--color-primary);
-  text-decoration: var(--link-text-decoration);
-  transition: var(--link-transition);
-}
-
-.episodeLink:hover {
-  color: var(--color-primary-hover);
-}
-
-.episodeLink strong {
+  color: var(--color-blue);
   font-weight: bold;
-}
-
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
