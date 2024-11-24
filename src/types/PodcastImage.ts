@@ -1,6 +1,6 @@
 export interface PodcastImage {
   label: string;
-  attributes: {
+  attributes?: {
     height: string;
   };
 }

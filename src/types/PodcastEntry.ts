@@ -51,7 +51,7 @@ interface Id {
 
 interface Artist {
   label: string;
-  attributes: {
+  attributes?: {
     href: string;
   };
 }

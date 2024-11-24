@@ -19,7 +19,7 @@ interface Label {
 
 interface Author {
   name: Label;
-  uri: Label;
+  uri?: Label;
 }
 
 interface Link {
