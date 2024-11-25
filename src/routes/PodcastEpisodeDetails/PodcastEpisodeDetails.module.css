@@ -1,18 +1,35 @@
 .episodeDetails {
   padding: var(--spacing-md);
-  background-color: var(--color-white);
-  border-radius: var(--border-radius);
 }
 
-.episodeDetails:hover {
-  box-shadow: none;
+.title {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  margin-bottom: var(--spacing-sm);
 }
 
 .description {
-  font-size: var(--font-size-md);
-  line-height: 1.6;
-  color: var(--color-dark-gray);
-  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.description a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.description a:hover {
+  text-decoration: underline;
+}
+
+.description ul, .description ol {
+  margin-left: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.description li {
+  margin-bottom: var(--spacing-xs);
 }
 
 .audio {

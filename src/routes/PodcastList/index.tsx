@@ -10,7 +10,7 @@ export const PodcastList: React.FC = () => {
   const podcastList = podcastFeed?.feed?.entry || [];
 
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.filterWrapper}>
         <PodcastFilter podcasts={podcastList} onFilterChange={onFilterChange} />
         <span className={styles.podcastFilterCount}>
@@ -23,6 +23,6 @@ export const PodcastList: React.FC = () => {
           <PodcastCard key={podcast.id.attributes['im:id']} podcast={podcast} />
         ))}
       </div>
-    </div>
+    </>
   );
 };

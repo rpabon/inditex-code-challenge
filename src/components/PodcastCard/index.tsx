@@ -26,7 +26,7 @@ export const PodcastCard: React.FC<PodcastCardProps> = ({ podcast }) => {
         </h3>
 
         <p className={styles.author} title={author}>
-          {author}
+          by {author}
         </p>
       </div>
     </Card>

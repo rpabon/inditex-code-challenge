@@ -23,7 +23,8 @@
 
 .main {
   flex: 1;
-  padding-bottom: calc(var(--spacing-md) + var(--footer-height));
+  padding: var(--page-padding);
+  padding-bottom: calc(var(--page-padding) + var(--footer-height));
 }
 
 .main.loading {

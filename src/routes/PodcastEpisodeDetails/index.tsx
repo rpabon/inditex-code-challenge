@@ -10,11 +10,8 @@ export const PodcastEpisodeDetails: React.FC = () => {
 
   return (
     <Card className={styles.episodeDetails}>
-      <h2>{episode.trackName}</h2>
-      <div
-        className={styles.description}
-        dangerouslySetInnerHTML={{ __html: episode.description }}
-      />
+      <h2 className={styles.title}>{episode.trackName}</h2>
+      <div className={styles.description}>{episode.description}</div>
       <audio controls src={episode.previewUrl} className={styles.audio}>
         Your browser does not support the audio element.
       </audio>

@@ -5,8 +5,8 @@
 .filterWrapper {
   display: flex;
   align-items: center;
-  width: 35%;
-  margin: 0 0 var(--spacing-md) auto;
+  width: 100%;
+  margin: 0 0 var(--spacing-md) 0;
 }
 
 .podcastFilterCount {
@@ -27,17 +27,27 @@
   gap: var(--spacing-md);
 }
 
-@media (max-width: 768px) {
+.fixedHeader {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.title {
+  margin-bottom: var(--spacing-sm);
+}
+
+@media (min-width: 769px) {
+  .filterWrapper {
+    width: 35%;
+    margin: 0 0 var(--spacing-md) auto;
+  }
+
   .fixedHeader {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
   }
 
   .title {
-    margin-bottom: var(--spacing-sm);
-  }
-
-  .filterWrapper {
-    width: 100%;
+    margin-bottom: 0;
   }
 }

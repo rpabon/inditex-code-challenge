@@ -1,18 +1,11 @@
 .layout {
   display: flex;
-  gap: var(--spacing-xl);
-  padding: var(--spacing-md);
-  min-height: calc(100vh - var(--header-height));
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
 .sidebarWrapper {
-  flex: 0 0 300px;
-  max-width: 300px;
-  align-self: flex-start;
-  position: sticky;
-  top: calc(var(--header-height) + var(--spacing-md));
-  max-height: calc(100vh - var(--header-height) - var(--spacing-md) * 2);
-  overflow-y: auto;
+  width: 100%;
 }
 
 .content {
@@ -20,16 +13,23 @@
   min-width: 0;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .layout {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .sidebarWrapper {
-    flex-basis: auto;
-    max-width: none;
-    width: 100%;
-    position: static;
-    max-height: none;
+    position: sticky;
+    top: calc(var(--header-height) + var(--page-padding));
+    max-width: 300px;
+    align-self: flex-start;
+  }
+
+  .content {
+    overflow: hidden;
+    height: calc(
+      100vh - var(--header-height) - var(--footer-height) - var(--page-padding) *
+        2
+    );
   }
 }

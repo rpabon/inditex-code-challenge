@@ -31,8 +31,8 @@
 }
 
 .title {
-  margin: 0 0 var(--spacing-xs) 0;
   font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -40,8 +40,8 @@
 }
 
 .author {
-  margin: 0;
   font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
   color: var(--color-gray);
   white-space: nowrap;
   overflow: hidden;

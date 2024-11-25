@@ -1,9 +1,3 @@
-.sidebarCard {
-  padding: var(--spacing-md);
-  width: 300px;
-  color: var(--color-dark-gray);
-}
-
 .image {
   width: 170px;
   height: 170px;
@@ -12,32 +6,34 @@
 
 .infoWrapper {
   border-bottom: var(--border);
-  padding: var(--spacing-sm) 0;
-  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
 }
 
 .title {
   font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
   font-weight: bold;
-  margin-top: 0;
-  margin-bottom: var(--spacing-xs);
 }
 
 .author {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
   font-style: italic;
-  color: var(--color-text-light);
-  margin: 0;
+  color: var(--color-gray);
 }
 
 .descriptionTitle {
   font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
   font-weight: bold;
   margin-bottom: var(--spacing-xs);
-  margin: 1;
 }
 
 .description {
   font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  color: var(--color-gray);
   max-height: 300px;
   overflow-y: auto;
   padding-right: var(--spacing-xs);

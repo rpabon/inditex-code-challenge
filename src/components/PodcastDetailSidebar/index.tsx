@@ -24,7 +24,7 @@ export const PodcastDetailSidebar: React.FC<PodcastDetailSidebarProps> = ({
 
   return (
     <Link to={`/podcast/${podcastId}`}>
-      <Card className={styles.sidebarCard}>
+      <Card>
         <PodcastImage className={styles.image} image={image} alt={title} />
 
         <div className={styles.infoWrapper}>
@@ -32,7 +32,6 @@ export const PodcastDetailSidebar: React.FC<PodcastDetailSidebarProps> = ({
           <p className={styles.author}>by {author}</p>
         </div>
 
-        <h3 className={styles.descriptionTitle}>Description:</h3>
         <p className={styles.description}>{description}</p>
       </Card>
     </Link>
