@@ -1,7 +1,11 @@
 import React from 'react';
+import { Interweave } from 'interweave';
+import { UrlMatcher } from 'interweave-autolink';
 import { Card } from '@/components/Card/Card';
 import { usePodcastEpisodeDetailsLogic } from './usePodcastEpisodeDetailsLogic';
 import styles from './PodcastEpisodeDetails.module.css';
+
+const urlMatcher = new UrlMatcher('url');
 
 export const PodcastEpisodeDetails: React.FC = () => {
   const episode = usePodcastEpisodeDetailsLogic();
@@ -11,7 +15,13 @@ export const PodcastEpisodeDetails: React.FC = () => {
   return (
     <Card className={styles.episodeDetails}>
       <h2 className={styles.title}>{episode.trackName}</h2>
-      <div className={styles.description}>{episode.description}</div>
+      <div className={styles.description}>
+        <Interweave
+          content={episode.description}
+          matchers={[urlMatcher]}
+          newWindow
+        />
+      </div>
       <audio controls src={episode.previewUrl} className={styles.audio}>
         Your browser does not support the audio element.
       </audio>

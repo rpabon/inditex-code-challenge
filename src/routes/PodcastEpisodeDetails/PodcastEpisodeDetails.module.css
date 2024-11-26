@@ -11,24 +11,18 @@
 .description {
   font-size: var(--font-size-sm);
   line-height: var(--line-height-md);
-  margin-bottom: var(--spacing-lg);
 }
 
 .description a {
-  color: var(--color-primary);
-  text-decoration: none;
+  color: var(--color-blue);
 }
 
 .description a:hover {
   text-decoration: underline;
 }
 
-.description ul, .description ol {
-  margin-left: var(--spacing-md);
-  margin-bottom: var(--spacing-sm);
-}
-
-.description li {
+.description br {
+  display: block;
   margin-bottom: var(--spacing-xs);
 }
 
