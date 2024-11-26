@@ -43,7 +43,6 @@
 
   /* Layout */
   --header-height: 80px;
-  --footer-height: 3rem;
   --page-padding: var(--spacing-md);
   --episode-number-height: 72px;
 }

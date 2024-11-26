@@ -15,19 +15,19 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   return (
     <div className={styles.appLayout}>
       <header className={styles.header}>
-        <Link to="/" className={styles.title}>
-          Podcaster
-        </Link>
+        <div className={styles.titleWrapper}>
+          <Link to="/" className={styles.title}>
+            Podcaster
+          </Link>
+          <span className={styles.titleSuffix}>by Ricardo Pabón</span>
+        </div>
+
         {loading && <LoaderSpinner />}
       </header>
 
       <main className={cx(styles.main, { [styles.loading]: loading })}>
         {children}
       </main>
-
-      <footer className={styles.footer}>
-        <p>&copy; {new Date().getFullYear()} | Developed by Ricardo Pabón</p>
-      </footer>
     </div>
   );
 };

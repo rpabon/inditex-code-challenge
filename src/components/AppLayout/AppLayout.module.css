@@ -16,15 +16,25 @@
   border-bottom: var(--border);
 }
 
+.titleWrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
 .title {
   font-size: var(--font-size-xl);
   font-weight: bold;
+  margin-right: var(--spacing-xs);
+}
+
+.titleSuffix {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray);
 }
 
 .main {
   flex: 1;
   padding: var(--page-padding);
-  padding-bottom: calc(var(--page-padding) + var(--footer-height));
 }
 
 .main.loading {
@@ -40,16 +50,4 @@
   height: 100%;
   background-color: rgba(255, 255, 255, 0.25);
   z-index: 1000;
-}
-
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0 var(--spacing-md);
-  background-color: var(--color-light-gray);
-  text-align: right;
-  height: var(--footer-height);
-  font-size: var(--font-size-sm);
 }

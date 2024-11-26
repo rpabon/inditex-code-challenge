@@ -1,24 +1,8 @@
-.container {
-  padding: var(--spacing-md);
-}
-
 .filterWrapper {
   display: flex;
   align-items: center;
   width: 100%;
   margin: 0 0 var(--spacing-md) 0;
-}
-
-.podcastFilterCount {
-  display: flex;
-  align-items: center;
-  margin-left: var(--spacing-sm);
-  padding: var(--spacing-xs);
-  background-color: var(--color-blue);
-  color: var(--color-white);
-  border-radius: var(--border-radius);
-  font-size: var(--font-size-sm);
-  font-weight: bold;
 }
 
 .podcastGrid {
@@ -27,27 +11,9 @@
   gap: var(--spacing-md);
 }
 
-.fixedHeader {
-  flex-direction: column;
-  align-items: stretch;
-}
-
-.title {
-  margin-bottom: var(--spacing-sm);
-}
-
 @media (min-width: 769px) {
   .filterWrapper {
     width: 35%;
     margin: 0 0 var(--spacing-md) auto;
-  }
-
-  .fixedHeader {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .title {
-    margin-bottom: 0;
   }
 }

@@ -12,10 +12,11 @@ export const PodcastList: React.FC = () => {
   return (
     <>
       <div className={styles.filterWrapper}>
-        <PodcastFilter podcasts={podcastList} onFilterChange={onFilterChange} />
-        <span className={styles.podcastFilterCount}>
-          {filteredPodcasts.length}
-        </span>
+        <PodcastFilter
+          podcasts={podcastList}
+          onFilterChange={onFilterChange}
+          filteredPodcastCount={filteredPodcasts.length}
+        />
       </div>
 
       <div className={styles.podcastGrid}>

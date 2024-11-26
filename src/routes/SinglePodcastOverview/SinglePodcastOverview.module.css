@@ -27,9 +27,6 @@
 
   .content {
     overflow: hidden;
-    height: calc(
-      100vh - var(--header-height) - var(--footer-height) - var(--page-padding) *
-        2
-    );
+    height: calc(100vh - var(--header-height) - var(--page-padding) * 2);
   }
 }

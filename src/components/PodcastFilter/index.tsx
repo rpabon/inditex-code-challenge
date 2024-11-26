@@ -5,11 +5,13 @@ import styles from './PodcastFilter.module.css';
 
 interface PodcastFilterProps {
   podcasts: PodcastEntry[];
+  filteredPodcastCount: number;
   onFilterChange: (filteredPodcasts: PodcastEntry[]) => void;
 }
 
 export const PodcastFilter: React.FC<PodcastFilterProps> = ({
   podcasts,
+  filteredPodcastCount = 0,
   onFilterChange,
 }) => {
   const { filterText, handleFilterChange } = usePodcastFilterLogic(
@@ -22,12 +24,15 @@ export const PodcastFilter: React.FC<PodcastFilterProps> = ({
   };
 
   return (
-    <input
-      type="text"
-      placeholder="Filter podcasts by title or author..."
-      value={filterText}
-      onChange={onInputChange}
-      className={styles.filterInput}
-    />
+    <div className={styles.filterContainer}>
+      <input
+        type="text"
+        placeholder="Filter podcasts by title or author..."
+        value={filterText}
+        onChange={onInputChange}
+        className={styles.filterInput}
+      />
+      <span className={styles.filterCount}>{filteredPodcastCount}</span>
+    </div>
   );
 };
