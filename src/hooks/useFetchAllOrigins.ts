@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useLoading } from '@/hooks/useLoading';
 
-const ALL_ORIGINS_URL = 'https://api.allorigins.win/get';
+export const ALL_ORIGINS_URL = 'https://api.allorigins.win/get';
 
 export const useFetchAllOrigins = () => {
   const { setLoading } = useLoading();

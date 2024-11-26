@@ -17,7 +17,11 @@ export const PodcastCard: React.FC<PodcastCardProps> = ({ podcast }) => {
   const image = podcast['im:image'][1];
 
   return (
-    <Card className={styles.card} onClick={() => navigateToPodcast(id)}>
+    <Card
+      className={styles.card}
+      data-testid="podcast-card"
+      onClick={() => navigateToPodcast(id)}
+    >
       <PodcastImage image={image} alt={title} className={styles.image} />
 
       <div className={styles.content}>

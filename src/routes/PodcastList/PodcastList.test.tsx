@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import mockPodcastFeed from '@/mocks/podcast-feed.mock';
 import { usePodcastListLogic } from './usePodcastListLogic';
 import { PodcastList } from '.';
@@ -10,9 +10,13 @@ jest.mock('@/hooks/usePodcastDetails', () => ({
   usePodcastDetails: () => ({ fetchPodcastDetails: jest.fn() }),
 }));
 
-jest.mock('@/components/PodcastFilter', () => ({
-  PodcastFilter: () => <div data-testid="podcast-filter" />,
+jest.mock('@/components/PodcastFilter/usePodcastFilterLogic', () => ({
+  usePodcastFilterLogic: () => ({
+    filterText: '',
+    handleFilterChange: jest.fn(),
+  }),
 }));
+
 const mockNavigateToPodcast = jest.fn();
 jest.mock('@/components/PodcastCard/usePodcastCard', () => ({
   usePodcastCard: () => mockNavigateToPodcast,
@@ -36,10 +40,12 @@ describe('PodcastList', () => {
 
     const podcastCards = screen.getAllByTestId('podcast-card');
     expect(podcastCards).toHaveLength(2);
-    expect(screen.getByText('2')).toBeInTheDocument();
+
+    const filteredPodcastCount = screen.getByTestId('podcast-filter__count');
+    expect(filteredPodcastCount).toHaveTextContent('2');
   });
 
-  it('should update the filter count when the filtered podcasts change', () => {
+  it('should update the filter count when the filtered podcasts change', async () => {
     const mockFilteredPodcasts = mockPodcastFeed.feed?.entry.slice(0, 2);
     (usePodcastListLogic as jest.Mock).mockReturnValue({
       podcastFeed: mockPodcastFeed,
@@ -47,9 +53,10 @@ describe('PodcastList', () => {
       onFilterChange: jest.fn(),
     });
 
-    render(<PodcastList />);
+    const { rerender } = render(<PodcastList />);
 
-    expect(screen.getByText('2')).toBeInTheDocument();
+    let filteredPodcastCount = screen.getByTestId('podcast-filter__count');
+    expect(filteredPodcastCount).toHaveTextContent('2');
 
     const updatedMockFilteredPodcasts = mockPodcastFeed.feed?.entry.slice(0, 3);
     (usePodcastListLogic as jest.Mock).mockReturnValue({
@@ -58,9 +65,12 @@ describe('PodcastList', () => {
       onFilterChange: jest.fn(),
     });
 
-    render(<PodcastList />);
+    rerender(<PodcastList />);
 
-    expect(screen.getByText('3')).toBeInTheDocument();
+    await waitFor(() => {
+      const filteredPodcastCount = screen.getByTestId('podcast-filter__count');
+      expect(filteredPodcastCount).toHaveTextContent('3');
+    });
   });
 
   it('should navigate to the corresponding podcast episode on podcast card click', () => {

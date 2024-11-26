@@ -32,7 +32,9 @@ export const PodcastFilter: React.FC<PodcastFilterProps> = ({
         onChange={onInputChange}
         className={styles.filterInput}
       />
-      <span className={styles.filterCount}>{filteredPodcastCount}</span>
+      <span className={styles.filterCount} data-testid="podcast-filter__count">
+        {filteredPodcastCount}
+      </span>
     </div>
   );
 };
