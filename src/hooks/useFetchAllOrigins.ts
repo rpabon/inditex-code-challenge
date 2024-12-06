@@ -6,9 +6,10 @@ export const ALL_ORIGINS_URL = 'https://api.allorigins.win/get';
 export const useFetchAllOrigins = () => {
   const { setLoading } = useLoading();
 
-  const handleError = useCallback((message: string) => {
-    const error = new Error(message);
-    console.error(error);
+  const handleError = useCallback((error: unknown) => {
+    const errorInstance =
+      error instanceof Error ? error : new Error(String(error));
+    console.error(errorInstance);
     return null;
   }, []);
 
@@ -31,12 +32,10 @@ export const useFetchAllOrigins = () => {
           const parsedContents = JSON.parse(data.contents) as T;
           return parsedContents;
         } catch (parseError) {
-          return handleError('Failed to parse JSON contents');
+          return handleError(parseError);
         }
-      } catch (e) {
-        const errorMessage =
-          e instanceof Error ? e.message : 'An unknown error occurred';
-        return handleError(errorMessage);
+      } catch (error) {
+        return handleError(error);
       } finally {
         setLoading(false);
       }

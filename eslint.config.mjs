@@ -4,7 +4,7 @@ import parser from '@typescript-eslint/parser';
 import prettier from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
-module.exports = [
+export default [
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
@@ -35,7 +35,7 @@ module.exports = [
     },
   },
   {
-    ignores: ['node_modules/**', 'dist/**'],
+    ignores: ['node_modules/**', 'dist/**', 'src/**/*.css'],
   },
   eslintConfigPrettier,
 ];

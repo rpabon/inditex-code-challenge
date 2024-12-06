@@ -1,9 +1,11 @@
-import { ReactNode, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { LoadingContext } from '.';
 
-export const LoadingProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
+interface Props {
+  children: ReactNode;
+}
+
+export const LoadingProvider: React.FC<Props> = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
   return (

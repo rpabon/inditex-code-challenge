@@ -10,8 +10,7 @@
     "prod": "npm run build:prod & npm run serve",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
+    "lint": "eslint src/**/* --no-warn-ignored",
     "ts:check": "tsc --noEmit",
     "test": "jest"
   },
