@@ -22,7 +22,12 @@ export const PodcastEpisodeDetails: React.FC = () => {
           newWindow
         />
       </div>
-      <audio controls src={episode.previewUrl} className={styles.audio}>
+      <audio
+        role="audio"
+        className={styles.audio}
+        src={episode.previewUrl}
+        controls
+      >
         Your browser does not support the audio element.
       </audio>
     </Card>
