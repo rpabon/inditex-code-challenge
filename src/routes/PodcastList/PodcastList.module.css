@@ -11,7 +11,7 @@
   gap: var(--spacing-md);
 }
 
-@media (min-width: 769px) {
+@media (width >= 769px) {
   .filterWrapper {
     width: 35%;
     margin: 0 0 var(--spacing-md) auto;

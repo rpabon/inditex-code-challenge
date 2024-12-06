@@ -37,6 +37,7 @@
   z-index: 1;
   background-color: var(--color-white);
 }
+
 .episodeTable th,
 .episodeTable td {
   padding: var(--spacing-sm) var(--spacing-md);

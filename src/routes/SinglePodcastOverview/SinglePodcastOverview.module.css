@@ -13,7 +13,7 @@
   min-width: 0;
 }
 
-@media (min-width: 769px) {
+@media (width >= 769px) {
   .layout {
     flex-direction: row;
   }
