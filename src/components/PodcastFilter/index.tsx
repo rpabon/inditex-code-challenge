@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import { PodcastEntry } from '@/types/PodcastEntry';
+import { PodcastEntry } from 'podcast-types';
 import { usePodcastFilterLogic } from './usePodcastFilterLogic';
 import styles from './PodcastFilter.module.css';
 

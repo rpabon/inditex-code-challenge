@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
+import { PodcastEntry } from 'podcast-types';
 import { usePodcastFeed } from '@/hooks/usePodcastFeed';
-import { PodcastEntry } from '@/types/PodcastEntry';
 
 export const usePodcastListLogic = () => {
   const { podcastFeed, fetchPodcastFeed } = usePodcastFeed();

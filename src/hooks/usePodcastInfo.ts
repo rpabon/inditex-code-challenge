@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { PodcastEntry } from '@/types/PodcastEntry';
+import { PodcastEntry } from 'podcast-types';
 import { usePodcastFeed } from './usePodcastFeed';
 
 export const usePodcastInfo = (podcastId?: string) => {

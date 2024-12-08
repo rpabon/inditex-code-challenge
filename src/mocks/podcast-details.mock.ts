@@ -1,4 +1,4 @@
-import { PodcastDetails } from '@/types/PodcastDetails';
+import { PodcastDetails } from 'podcast-types';
 
 const podcastDetails: PodcastDetails = {
   resultCount: 3,

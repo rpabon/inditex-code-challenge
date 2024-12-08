@@ -1,4 +1,4 @@
-import { PodcastFeed } from '@/types/PodcastFeed';
+import { PodcastFeed } from 'podcast-types';
 
 export interface PodcastFeedContextType {
   podcastFeed: PodcastFeed | null;

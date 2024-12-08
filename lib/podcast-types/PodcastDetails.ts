@@ -1,4 +1,4 @@
-import { PodcastEpisode } from '@/types/PodcastEpisode';
+import { PodcastEpisode } from './PodcastEpisode';
 
 export interface PodcastDetails {
   resultCount: number;

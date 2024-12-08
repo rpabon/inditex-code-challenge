@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { PodcastFeed } from '@/types/PodcastFeed';
+import { PodcastFeed } from 'podcast-types';
 import { useFetchAllOrigins } from '@/hooks/useFetchAllOrigins';
 import { getItemFromStorage, setItemToStorage } from '@/store/store.utils';
 import { PodcastFeedContext } from '.';

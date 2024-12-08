@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
-import { PodcastImage as PodcastImageType } from '@/types/PodcastImage';
+import { PodcastImage as PodcastImageType } from 'podcast-types';
 import styles from './PodcastImage.module.css';
 
 interface PodcastImageProps {

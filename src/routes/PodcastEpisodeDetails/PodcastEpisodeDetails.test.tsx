@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { PodcastEpisode } from '@/types/PodcastEpisode';
+import { PodcastEpisode } from 'podcast-types';
 import { usePodcastEpisodeDetailsLogic } from './usePodcastEpisodeDetailsLogic';
 import { PodcastEpisodeDetails } from '.';
 

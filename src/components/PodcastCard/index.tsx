@@ -1,7 +1,7 @@
 import React from 'react';
+import { PodcastEntry } from 'podcast-types';
 import { Card } from '@/components/Card/Card';
 import { PodcastImage } from '@/components/PodcastImage';
-import { PodcastEntry } from '@/types/PodcastEntry';
 import { usePodcastCard } from './usePodcastCard';
 import styles from './PodcastCard.module.css';
 

@@ -1,4 +1,4 @@
-import { PodcastImage } from '@/types/PodcastImage';
+import { PodcastImage } from './PodcastImage';
 
 export interface PodcastEntry {
   id: Id;

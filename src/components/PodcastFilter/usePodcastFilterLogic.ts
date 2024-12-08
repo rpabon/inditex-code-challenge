@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { PodcastEntry } from '@/types/PodcastEntry';
+import { PodcastEntry } from 'podcast-types';
 
 export const usePodcastFilterLogic = (
   podcasts: PodcastEntry[],
