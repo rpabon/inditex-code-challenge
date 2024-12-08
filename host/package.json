@@ -17,6 +17,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "css-variables": "file:../lib/css-variables",
     "classnames": "^2.5.1",
     "interweave": "^13.1.0",
     "interweave-autolink": "^5.1.1",

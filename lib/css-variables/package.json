@@ -1,0 +1,9 @@
+{
+  "name": "styles-package",
+  "version": "1.0.0",
+  "main": "variables.css",
+  "files": [
+    "variables.css"
+  ],
+  "private": true
+}
