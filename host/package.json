@@ -21,7 +21,7 @@
     "interweave": "^13.1.0",
     "interweave-autolink": "^5.1.1",
     "modern-normalize": "^3.0.1",
-    "podcast-types": "file:lib/podcast-types",
+    "podcast-types": "file:../lib/podcast-types",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0"
