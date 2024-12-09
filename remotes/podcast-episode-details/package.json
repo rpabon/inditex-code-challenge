@@ -17,8 +17,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "css-variables": "file:../../lib/css-variables",
     "classnames": "^2.5.1",
+    "cors": "^2.8.5",
+    "css-variables": "file:../../lib/css-variables",
+    "express": "^4.21.2",
     "interweave": "^13.1.0",
     "interweave-autolink": "^5.1.1",
     "modern-normalize": "^3.0.1",

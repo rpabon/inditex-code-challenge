@@ -1,17 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PodcastEpisodeDetails from './PodcastEpisodeDetails';
 
-const CounterButton: React.FC = () => {
-  const [count, setCount] = useState(0);
-
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
-  return (
-    <button onClick={handleClick}>
-      Count: {count}
-    </button>
-  );
+const App: React.FC = () => {
+  return <PodcastEpisodeDetails />;
 };
 
-export default CounterButton;
+export default App;

@@ -17,8 +17,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "css-variables": "file:../lib/css-variables",
     "classnames": "^2.5.1",
+    "cors": "^2.8.5",
+    "css-variables": "file:../lib/css-variables",
+    "express": "^4.21.2",
     "interweave": "^13.1.0",
     "interweave-autolink": "^5.1.1",
     "modern-normalize": "^3.0.1",
@@ -51,7 +53,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "live-server": "^1.2.2",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss": "^8.4.49",
     "postcss-loader": "^8.1.1",

@@ -7,11 +7,13 @@
     "lib": "lib"
   },
   "scripts": {
-    "dev:host": "cd host && npm run dev",
-    "prod:host": "cd host && npm run prod",
+    "dev:host": "npm-run-all --parallel server:dev host:build:dev",
+    "prod:host": "cd host && npm run build:prod && cd ../server && npm start",
     "dev:remotes": "cd remotes/podcast-episode-details && npm run dev",
     "prod:remotes": "cd remotes/podcast-episode-details && npm run prod",
-    "dev:all": "npm-run-all --parallel dev:host dev:remotes"
+    "dev:all": "npm-run-all --parallel dev:host dev:remotes",
+    "server:dev": "cd server && npm run dev",
+    "host:build:dev": "cd host && npm run build:dev"
   },
   "author": "",
   "license": "ISC",

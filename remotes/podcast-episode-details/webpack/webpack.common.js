@@ -38,7 +38,7 @@ module.exports = {
       name: 'remoteApp',
       filename: 'remoteEntry.js',
       exposes: {
-        './Button': './src/App.tsx',
+        './PodcastEpisodeDetails': './src/PodcastEpisodeDetails',
       },
       shared: {
         react: { singleton: true, eager: true },
