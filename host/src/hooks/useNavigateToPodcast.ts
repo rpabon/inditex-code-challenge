@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLoading } from '@/hooks/useLoading';
 import { usePodcastDetails } from '@/hooks/usePodcastDetails';
 
-export const usePodcastCard = () => {
+export const useNavigateToPodcast = () => {
   const navigate = useNavigate();
   const { setLoading } = useLoading();
   const { fetchPodcastDetails } = usePodcastDetails();

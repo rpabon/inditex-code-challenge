@@ -35,10 +35,10 @@ module.exports = {
       template: './src/index.html',
     }),
     new ModuleFederationPlugin({
-      name: 'remoteApp',
+      name: 'episodeDetailsApp',
       filename: 'remoteEntry.js',
       exposes: {
-        './PodcastEpisodeDetails': './src/PodcastEpisodeDetails',
+        './PodcastEpisodeDetails': './src/PodcastEpisodeDetails/index.tsx',
       },
       shared: {
         react: { singleton: true, eager: true },

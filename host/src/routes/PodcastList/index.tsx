@@ -1,29 +1,20 @@
-import React from 'react';
-import { PodcastCard } from '@/components/PodcastCard';
-import { PodcastFilter } from '@/components/PodcastFilter';
+import React, { lazy, Suspense } from 'react';
+import { LoaderSpinner } from '@/components/LoaderSpinner';
+import { useNavigateToPodcast } from '@/hooks/useNavigateToPodcast';
 import { usePodcastListLogic } from './usePodcastListLogic';
-import styles from './PodcastList.module.css';
+
+const RemotePodcastList = lazy(() => import('podcastListApp/PodcastList'));
 
 export const PodcastList: React.FC = () => {
-  const { podcastFeed, filteredPodcasts, onFilterChange } =
-    usePodcastListLogic();
-  const podcastList = podcastFeed?.feed?.entry || [];
+  const { podcastList } = usePodcastListLogic();
+  const navigateToPocast = useNavigateToPodcast();
 
   return (
-    <>
-      <div className={styles.filterWrapper}>
-        <PodcastFilter
-          podcasts={podcastList}
-          onFilterChange={onFilterChange}
-          filteredPodcastCount={filteredPodcasts.length}
-        />
-      </div>
-
-      <div className={styles.podcastGrid}>
-        {filteredPodcasts.map((podcast) => (
-          <PodcastCard key={podcast.id.attributes['im:id']} podcast={podcast} />
-        ))}
-      </div>
-    </>
+    <Suspense fallback={<LoaderSpinner />}>
+      <RemotePodcastList
+        podcastList={podcastList}
+        onPodcastClick={navigateToPocast}
+      />
+    </Suspense>
   );
 };

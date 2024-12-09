@@ -3,7 +3,7 @@ import { LoaderSpinner } from '@/components/LoaderSpinner';
 import { usePodcastEpisodeDetailsLogic } from './usePodcastEpisodeDetailsLogic';
 
 const RemotePodcastEpisodeDetails = lazy(
-  () => import('remoteApp/PodcastEpisodeDetails'),
+  () => import('episodeDetailsApp/PodcastEpisodeDetails'),
 );
 
 export const PodcastEpisodeDetails: React.FC = () => {

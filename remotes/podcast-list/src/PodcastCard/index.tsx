@@ -1,16 +1,18 @@
 import React from 'react';
 import { PodcastEntry } from 'podcast-types';
-import { Card } from '@/components/Card/Card';
-import { PodcastImage } from '@/components/PodcastImage';
-import { usePodcastCard } from './usePodcastCard';
+import { Card } from '@/Card';
+import { PodcastImage } from '@/PodcastImage';
 import styles from './PodcastCard.module.css';
 
 interface PodcastCardProps {
   podcast: PodcastEntry;
+  navigateToPodcast: (id: string) => void;
 }
 
-export const PodcastCard: React.FC<PodcastCardProps> = ({ podcast }) => {
-  const navigateToPodcast = usePodcastCard();
+export const PodcastCard: React.FC<PodcastCardProps> = ({
+  podcast,
+  navigateToPodcast,
+}) => {
   const id = podcast.id.attributes['im:id'];
   const title = podcast['im:name'].label;
   const author = podcast['im:artist'].label;

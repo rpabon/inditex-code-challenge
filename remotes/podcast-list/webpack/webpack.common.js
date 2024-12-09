@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].bundle.js',
-    publicPath: '/',
+    publicPath: 'http://localhost:3002/',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
@@ -35,11 +35,10 @@ module.exports = {
       template: './src/index.html',
     }),
     new ModuleFederationPlugin({
-      name: 'hostApp',
-      remotes: {
-        episodeDetailsApp:
-          'episodeDetailsApp@http://localhost:3001/remoteEntry.js',
-        podcastListApp: 'podcastListApp@http://localhost:3002/remoteEntry.js',
+      name: 'podcastListApp',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './PodcastList': './src/PodcastList/index.tsx',
       },
       shared: {
         react: { singleton: true, eager: true },
