@@ -1,0 +1,19 @@
+.filterWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.podcastGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+}
+
+@media (width >= 769px) {
+  .filterWrapper {
+    width: 35%;
+    margin: 0 0 var(--spacing-md) auto;
+  }
+}

@@ -2,65 +2,92 @@
 
 Developed by Ricardo Pabón
 
-## How to Run the Project
+# Podcaster App
 
-To build and run the project, you can use the following npm scripts:
+Developed by Ricardo Pabón
 
-1. For development:
-   `npm run dev`
+## How to Run
 
-This command does the following:
+1. Install Dependencies: `npm run install:all`
+2. Build the Apps: `npm run build`
+3. Start the Servers: `npm run serve`
+4. Run Tests: `npm run test`
 
-- Builds the project using the development Webpack configuration (`webpack/webpack.dev.js`)
-- Starts the server using `node server.js`
+**Important**: Always build the apps (step 2) before starting the servers (step 3).
 
-2. For production:
-   `npm run prod`
+## Architecture
 
-This command does the following:
+The Podcaster App is built using a microfrontend architecture, leveraging Webpack Module Federation. This approach allows for a more scalable and maintainable application structure by breaking down the app into smaller, more manageable pieces.
 
-- Builds the project using the production Webpack configuration (`webpack/webpack.prod.js`)
-- Starts the server using `node server.js`
+### Microfrontend Structure
 
-Both scripts use Webpack for building and a Node.js server for serving the application. The development build is optimized for faster builds and debugging, while the production build is optimized for performance and smaller file sizes.
+The application consists of one host app and three remote apps. Each remote app can be developed, run, and tested independently from the host, allowing for greater flexibility and parallel development workflows.
 
-## How to Test
+1. **Host App**: The main application shell that orchestrates the loading and integration of the remote apps.
 
-To run the test suite, use the following command: `npm test`. This command uses Jest to run all test files in the project.
+2. **Remote Apps**:
+   - **Podcast List**: Handles the display and management of the podcast list.
+   - **Podcast Episode List**: Manages the list of episodes for a selected podcast.
+   - **Podcast Episode Details**: Displays detailed information about a selected episode.
 
-Additionally, you can use these scripts for code quality checks:
+Each remote app is a self-contained module that can function independently, with its own build process, dependencies, and testing suite. This independence allows teams to work on different parts of the application simultaneously without interfering with each other's work. When integrated into the host app, these remotes come together to form the complete Podcaster application.
+Podcaster App
+│
+├── Host App
+│ │
+│ ├── Remote: Podcast List
+│ │ └── Components:
+│ │ ├── PodcastGrid
+│ │ ├── PodcastCard
+│ │ └── SearchBar
+│ │
+│ ├── Remote: Podcast Episode List
+│ │ └── Components:
+│ │ ├── EpisodeList
+│ │ └── EpisodeListItem
+│ │
+│ └── Remote: Podcast Episode Details
+│ └── Components:
+│ ├── EpisodeInfo
+│ └── AudioPlayer
+│
+└── Shared Resources
+├── State Management
+├── Routing
+└── PodcastDetailSidebar
 
-- To check TypeScript types without emitting files:
-  `npm run ts:check`
+### Webpack Module Federation
 
-- To run ESLint for code linting:
-  `npm run lint`
+We use Webpack Module Federation to enable the microfrontend architecture. This allows each app to be developed and deployed independently while still functioning as part of a cohesive whole.
 
-- To automatically format code with Prettier:
-  `npm run format`
+Key benefits of this approach include:
 
-## About the Architecture
+- **Independent Development**: Each team can work on their respective apps without interfering with others.
+- **Separate Deployment**: Apps can be deployed independently, reducing the risk of system-wide failures.
+- **Runtime Integration**: Modules are loaded and integrated at runtime, allowing for dynamic composition of the application.
+- **Shared Dependencies**: Common libraries can be shared across apps, reducing bundle sizes and improving load times.
 
-The Podcaster App is built using a scalable and maintainable architecture with the following key features:
+### Communication Between Apps
 
-1. Webpack Setup: The project uses Webpack to bundle React, TypeScript, and CSS Modules. This setup allows for efficient code splitting, asset management, and optimized builds for both development and production environments.
+The apps share information and maintain a consistent state through:
 
-2. Component-Based Architecture: The application is structured around reusable React components, promoting modularity and easier maintenance. Each component is designed to be self-contained with its own logic and styling.
+- **React Context-based Store**: A centralized state management solution using React Context API is implemented in the host app. This store is consumed by all remote apps, allowing them to access and update shared data efficiently.
 
-3. Separation of Concerns and Custom Hook Composition: The codebase is organized to separate different aspects of the application, leveraging custom hook composition to create reusable and composable logic:
-   - Components handle the UI and user interactions
-   - Custom hooks manage complex logic and state
-   - Utility functions handle reusable operations
-   - CSS Modules provide scoped styling for components
+- **URL Parameters**: For routing and passing basic information between different views or components. This approach is particularly useful for maintaining the application state across page reloads or when sharing links.
 
-This approach allows for:
+### Limitations
 
-- Better separation of concerns
-- Easier testing of business logic
-- More flexible and maintainable code
+While the microfrontend architecture provides numerous benefits, there are some limitations in the current implementation:
 
-4. Open/Closed Principle: The architecture adheres to the Open/Closed Principle by designing components and hooks that are open for extension but closed for modification. This is achieved through composition and props, allowing new functionality to be added without changing existing code.
+1. **Production Build Remote Discovery**: In the production build of the host app, there is an issue with discovering and loading the remote apps. This contrasts with the development environment, where remote apps are successfully located and integrated.
 
-5. Facade Pattern: Complex subsystems or external APIs are wrapped in simpler interfaces (facades) to provide a more convenient API for the rest of the application. This is particularly evident in custom hooks that abstract away complex data fetching or state management logic.
+   - In development: Remote apps are correctly found and loaded.
+   - In production: The host app fails to locate and integrate the remote apps.
 
-By combining these architectural principles and patterns, the App achieves a balance between flexibility, maintainability, and performance, providing a solid foundation for future enhancements and scalability.
+   This limitation is primarily due to time constraints, which prevented a thorough exploration and implementation of a robust solution for production environments. Potential solutions might include:
+
+   - Implementing a dynamic remote loading strategy that works in both development and production.
+   - Setting up a more sophisticated build pipeline that correctly bundles and deploys all microfrontends together.
+   - Exploring server-side rendering or static site generation techniques that can pre-render the integrated application.
+
+2. **Testing Complexity**: While individual remotes can be tested in isolation, integration testing of the entire application becomes more complex and was not fully addressed in the current implementation.

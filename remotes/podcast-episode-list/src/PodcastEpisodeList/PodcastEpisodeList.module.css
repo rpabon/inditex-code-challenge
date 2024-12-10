@@ -1,0 +1,63 @@
+.episodeList {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-height));
+  overflow: hidden;
+}
+
+.episodeCard {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: var(--episode-number-height);
+  margin-bottom: var(--page-padding);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+.episodeCard:hover {
+  box-shadow: none;
+}
+
+.tableWrapper {
+  overflow-y: auto;
+  height: calc(100% - var(--episode-number-height) - var(--page-padding));
+}
+
+.episodeTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: var(--font-size-sm);
+}
+
+.episodeTable thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--color-white);
+}
+
+.episodeTable th,
+.episodeTable td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: var(--border);
+}
+
+.episodeTable th {
+  font-weight: bold;
+}
+
+.episodeTable th:nth-child(2),
+.episodeTable th:nth-child(3),
+.episodeTable td:nth-child(2),
+.episodeTable td:nth-child(3) {
+  text-align: center;
+}
+
+.episodeLink {
+  cursor: pointer;
+  color: var(--color-blue);
+  font-weight: bold;
+}
