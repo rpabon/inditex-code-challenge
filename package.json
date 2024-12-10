@@ -7,28 +7,32 @@
     "lib": "lib"
   },
   "scripts": {
-    "host:build:dev": "cd host && npm run build:dev",
-    "host:build:prod": "cd host && npm run build:prod",
-    "host:serve": "cd host && npm run serve",
-    "host:serve:dev": "cd host && npm run serve:dev",
-    "podcast-list:build:dev": "cd remotes/podcast-list && npm run build:dev",
-    "podcast-list:build:prod": "cd remotes/podcast-list && npm run build:prod",
-    "podcast-list:serve": "cd remotes/podcast-list && npm run serve",
-    "podcast-list:serve:dev": "cd remotes/podcast-list && npm run serve:dev",
-    "podcast-episode-list:build:dev": "cd remotes/podcast-episode-list && npm run build:dev",
-    "podcast-episode-list:build:prod": "cd remotes/podcast-episode-list && npm run build:prod",
-    "podcast-episode-list:serve": "cd remotes/podcast-episode-list && npm run serve",
-    "podcast-episode-list:serve:dev": "cd remotes/podcast-episode-list && npm run serve:dev",
-    "podcast-episode-details:build:dev": "cd remotes/podcast-episode-details && npm run build:dev",
-    "podcast-episode-details:build:prod": "cd remotes/podcast-episode-details && npm run build:prod",
-    "podcast-episode-details:serve": "cd remotes/podcast-episode-details && npm run serve",
-    "podcast-episode-details:serve:dev": "cd remotes/podcast-episode-details && npm run serve:dev",
-    "build:dev": "npm-run-all --parallel *:build:dev",
-    "build:prod": "npm-run-all --parallel *:build:prod",
+    "install:all": "npm install && npm-run-all --parallel *:install",
+    "build": "npm-run-all --parallel *:build:dev",
     "serve": "npm-run-all --parallel *:serve",
-    "serve:dev": "npm-run-all --parallel *:serve:dev"
+    "test": "npm-run-all --parallel *:test",
+
+    "host:install": "cd host && npm install",
+    "host:build:dev": "cd host && npm run build:dev",
+    "host:serve": "cd host && npm run serve",
+    "host:test": "cd host && npm test",
+
+    "podcast-list:install": "cd remotes/podcast-list && npm install",
+    "podcast-list:build:dev": "cd remotes/podcast-list && npm run build:dev",
+    "podcast-list:serve": "cd remotes/podcast-list && npm run serve",
+    "podcast-list:test": "cd remotes/podcast-list && npm test",
+
+    "podcast-episode-list:install": "cd remotes/podcast-episode-list && npm install",
+    "podcast-episode-list:build:dev": "cd remotes/podcast-episode-list && npm run build:dev",
+    "podcast-episode-list:serve": "cd remotes/podcast-episode-list && npm run serve",
+    "podcast-episode-list:test": "cd remotes/podcast-episode-list && npm test",
+
+    "podcast-episode-details:install": "cd remotes/podcast-episode-details && npm install",
+    "podcast-episode-details:build:dev": "cd remotes/podcast-episode-details && npm run build:dev",
+    "podcast-episode-details:serve": "cd remotes/podcast-episode-details && npm run serve",
+    "podcast-episode-details:test": "cd remotes/podcast-episode-details && npm test"
   },
-  "author": "",
+  "author": "Ricardo Pabón",
   "license": "ISC",
   "devDependencies": {
     "npm-run-all": "^4.1.5"

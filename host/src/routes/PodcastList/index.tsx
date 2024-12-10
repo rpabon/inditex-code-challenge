@@ -7,13 +7,13 @@ const RemotePodcastList = lazy(() => import('podcastListApp/PodcastList'));
 
 export const PodcastList: React.FC = () => {
   const { podcastList } = usePodcastListLogic();
-  const navigateToPocast = useNavigateToPodcast();
+  const navigateToPodcast = useNavigateToPodcast();
 
   return (
     <Suspense fallback={<LoaderSpinner />}>
       <RemotePodcastList
         podcastList={podcastList}
-        onPodcastClick={navigateToPocast}
+        onPodcastClick={navigateToPodcast}
       />
     </Suspense>
   );
