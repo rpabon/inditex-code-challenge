@@ -3,6 +3,7 @@
   "author": "Ricardo Pabón",
   "version": "1.0.0",
   "scripts": {
+    "serve:dev": "nodemon server.js",
     "serve": "node server.js",
     "build:dev": "webpack --config webpack/webpack.dev.js",
     "build:prod": "webpack --config webpack/webpack.prod.js",
@@ -53,6 +54,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "live-server": "^1.2.2",
     "mini-css-extract-plugin": "^2.9.2",
+    "nodemon": "^3.1.7",
     "postcss": "^8.4.49",
     "postcss-loader": "^8.1.1",
     "prettier": "^3.3.3",
