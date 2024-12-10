@@ -27,30 +27,22 @@ The application consists of one host app and three remote apps. Each remote app 
    - **Podcast Episode Details**: Displays detailed information about a selected episode.
 
 Each remote app is a self-contained module that can function independently, with its own build process, dependencies, and testing suite. This independence allows teams to work on different parts of the application simultaneously without interfering with each other's work. When integrated into the host app, these remotes come together to form the complete Podcaster application.
-Podcaster App
-│
-├── Host App
-│ │
-│ ├── Remote: Podcast List
-│ │ └── Components:
-│ │ ├── PodcastGrid
-│ │ ├── PodcastCard
-│ │ └── SearchBar
-│ │
-│ ├── Remote: Podcast Episode List
-│ │ └── Components:
-│ │ ├── EpisodeList
-│ │ └── EpisodeListItem
-│ │
-│ └── Remote: Podcast Episode Details
-│ └── Components:
-│ ├── EpisodeInfo
-│ └── AudioPlayer
-│
-└── Shared Resources
-├── State Management
-├── Routing
-└── PodcastDetailSidebar
+
+- **_Podcaster App_**
+  - **Host App**
+    - State Management
+    - Routing
+    - PodcastDetailSidebar
+  - **Remote: Podcast List**
+    - PodcastGrid
+    - PodcastCard
+    - SearchBar
+  - **Remote: Podcast Episode List**
+    - EpisodeList
+    - EpisodeListItem
+  - **Remote: Podcast Episode Details**
+    - EpisodeInfo
+    - AudioPlayer
 
 ### Webpack Module Federation
 
