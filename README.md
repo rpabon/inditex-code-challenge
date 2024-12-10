@@ -2,10 +2,6 @@
 
 Developed by Ricardo Pabón
 
-# Podcaster App
-
-Developed by Ricardo Pabón
-
 ## How to Run
 
 1. Install Dependencies: `npm run install:all`
