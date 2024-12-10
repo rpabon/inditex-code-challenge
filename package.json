@@ -7,13 +7,21 @@
     "lib": "lib"
   },
   "scripts": {
-    "dev:host": "npm-run-all --parallel server:dev host:build:dev",
-    "prod:host": "cd host && npm run build:prod && cd ../server && npm start",
-    "dev:remotes": "cd remotes/podcast-episode-details && npm run dev",
-    "prod:remotes": "cd remotes/podcast-episode-details && npm run prod",
-    "dev:all": "npm-run-all --parallel dev:host dev:remotes",
-    "server:dev": "cd server && npm run dev",
-    "host:build:dev": "cd host && npm run build:dev"
+    "host:build:dev": "cd host && npm run build:dev",
+    "host:build:prod": "cd host && npm run build:prod",
+    "host:serve": "cd host && npm run serve",
+    "podcast-list:build:dev": "cd remotes/podcast-list && npm run build:dev",
+    "podcast-list:build:prod": "cd remotes/podcast-list && npm run build:prod",
+    "podcast-list:serve": "cd remotes/podcast-list && npm run serve",
+    "podcast-episode-list:build:dev": "cd remotes/podcast-episode-list && npm run build:dev",
+    "podcast-episode-list:build:prod": "cd remotes/podcast-episode-list && npm run build:prod",
+    "podcast-episode-list:serve": "cd remotes/podcast-episode-list && npm run serve",
+    "podcast-episode-details:build:dev": "cd remotes/podcast-episode-details && npm run build:dev",
+    "podcast-episode-details:build:prod": "cd remotes/podcast-episode-details && npm run build:prod",
+    "podcast-episode-details:serve": "cd remotes/podcast-episode-details && npm run serve",
+    "build:dev": "npm-run-all --parallel *:build:dev",
+    "build:prod": "npm-run-all --parallel *:build:prod",
+    "serve": "npm-run-all --parallel *:serve"
   },
   "author": "",
   "license": "ISC",

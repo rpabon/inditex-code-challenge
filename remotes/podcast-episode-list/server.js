@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const dotenv = require('dotenv');
 
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 const app = express();
-const PORT = 3003;
+const PORT = process.env.PODCAST_EPISODE_LIST_PORT || 3002;
 const distPath = path.join(__dirname, 'dist');
 
 app.use(cors());

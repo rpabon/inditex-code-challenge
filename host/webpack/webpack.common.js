@@ -1,6 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
+const dotenv = require('dotenv');
+
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 module.exports = {
   entry: './src/index.tsx',
@@ -37,11 +40,9 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'hostApp',
       remotes: {
-        episodeDetailsApp:
-          'episodeDetailsApp@http://localhost:3001/remoteEntry.js',
-        podcastListApp: 'podcastListApp@http://localhost:3002/remoteEntry.js',
-        podcastEpisodeListApp:
-          'podcastEpisodeListApp@http://localhost:3003/remoteEntry.js',
+        episodeDetailsApp: `episodeDetailsApp@http://localhost:${process.env.PODCAST_EPISODE_DETAILS_PORT}/remoteEntry.js`,
+        podcastListApp: `podcastListApp@http://localhost:${process.env.PODCAST_LIST_PORT}/remoteEntry.js`,
+        podcastEpisodeListApp: `podcastEpisodeListApp@http://localhost:${process.env.PODCAST_EPISODE_LIST_PORT}/remoteEntry.js`,
       },
       shared: {
         react: { singleton: true, eager: true },

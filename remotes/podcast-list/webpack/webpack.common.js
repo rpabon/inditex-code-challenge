@@ -1,13 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
+const dotenv = require('dotenv');
+
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].bundle.js',
-    publicPath: 'http://localhost:3002/',
+    publicPath: `http://localhost:${process.env.PODCAST_LIST_PORT}/`,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],

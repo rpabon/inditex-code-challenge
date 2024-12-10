@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const dotenv = require('dotenv');
 
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 const app = express();
-const PORT = 3000;
+const PORT = process.env.HOST_PORT || 3000;
 const distPath = path.join(__dirname, 'dist');
 
 app.use(cors());
@@ -14,5 +16,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Host app is running on http://localhost:${PORT}`);
 });
